@@ -1,0 +1,3014 @@
+<!-- Created by Bracy 0.4 on Monday, January 1, 2018 at 7:48 PM CST -->
+<html>
+ <head>
+  <title>
+   The Bracy Manual
+  </title>
+  <style>
+   a:active
+    { color: purple;
+      font-weight: bold;
+      text-decoration: none }
+   a:link
+    { color: blue;
+      font-weight: bold;
+      text-decoration: none }
+   a:visited
+    { color: purple;
+      font-weight: bold;
+      text-decoration: none }
+   hr
+    { background-color: black;
+      border: none;
+      color: black;
+      height: 1px }
+   table
+    { border-collapse: collapse }
+  </style>
+ </head>
+ <body bgcolor="#FFFFFF">
+  <a name="top">
+  </a>
+  <p align="center">
+   <b>The Bracy Manual</b>
+   <br />
+   <br />
+   James B. Moen
+   <br />
+   June 30, 2017
+  </p>
+  <p align="justify">
+   Copyright &#169; 2017 James B. Moen. Permission is granted to copy,
+   distribute, and/or modify this document under the terms of the
+   G<small>NU</small> Free Documentation License, Version 1.3 or any later
+   version published by the Free Software Foundation; with no Invariant
+   Sections, no Front-Cover Texts, and no Back-Cover Texts. A copy of the
+   license may be obtained at
+   <a href="http://fsf.org/">
+    <tt>&lt;http://fsf.org/&gt;.</tt>
+   </a>
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This manual uses special characters. Without
+   proper rendering support, you may see question marks, boxes, or other
+   symbols in place of these characters.
+  </p>
+  <hr />
+  <p align="center">
+   <b>Contents</b>
+  </p>
+  <table cellpadding="0" cellspacing="0">
+   <tr valign="top">
+    <td>
+     <p>
+      <a href="#introduction">
+       1.
+      </a>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      Introduction.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a href="#running">
+       2.
+      </a>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      Running Bracy.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a href="#syntax">
+       3.
+      </a>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      Syntax.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <table cellpadding="0" cellspacing="0">
+      <tr valign="top">
+       <td>
+        <p>
+         <a href="#styles">
+          3.1.
+         </a>
+         &nbsp;
+        </p>
+       </td>
+       <td>
+        <p>
+         Styles.
+        </p>
+       </td>
+      </tr>
+      <tr valign="top">
+       <td>
+        <p>
+         <a href="#bbb">
+          3.2.
+         </a>
+         &nbsp;
+        </p>
+       </td>
+       <td>
+        <p>
+         Braces, backslashes, and blanks.
+        </p>
+       </td>
+      </tr>
+      <tr valign="top">
+       <td>
+        <p>
+         <a href="#scopes">
+          3.3.
+         </a>
+         &nbsp;
+        </p>
+       </td>
+       <td>
+        <p>
+         Scopes.
+        </p>
+       </td>
+      </tr>
+      <tr valign="top">
+       <td>
+        <p>
+         &nbsp;
+        </p>
+       </td>
+       <td>
+        <table cellpadding="0" cellspacing="0">
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#left">
+             3.3.1.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Left.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#right">
+             3.3.2.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Right.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#justify">
+             3.3.3.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Justify.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#center">
+             3.3.4.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Center.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#bullet">
+             3.3.5.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Bullet.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#column">
+             3.3.6.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Column.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#number">
+             3.3.7.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Number.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#itemize">
+             3.3.8.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Itemize.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#display">
+             3.3.9.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Display.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#indent">
+             3.3.10.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Indent.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#orson">
+             3.3.11.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Orson.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#over">
+             3.3.12.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Over.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#narrow">
+             3.3.13.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Narrow.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#comment">
+             3.3.14.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Comment.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#title">
+             3.3.15.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Title.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#goto">
+             3.3.16.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Goto.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#label">
+             3.3.17.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Label.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#image">
+             3.3.18.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Image.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#insert">
+             3.3.19.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Insert.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#table">
+             3.3.20.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Table.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#layout">
+             3.3.21.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Layout.
+           </p>
+          </td>
+         </tr>
+         <tr valign="top">
+          <td>
+           <p>
+            <a href="#rule">
+             3.3.22.
+            </a>
+            &nbsp;
+           </p>
+          </td>
+          <td>
+           <p>
+            Rule.
+           </p>
+          </td>
+         </tr>
+        </table>
+       </td>
+      </tr>
+     </table>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a href="#references">
+       4.
+      </a>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      References.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+  </table>
+  <hr />
+  <a name="introduction">
+  </a>
+  <p>
+   <b>1. Introduction.</b>
+  </p>
+  <blockquote>
+   <p align="justify">
+    &lsquo;&lsquo;I never intended <small>HTML</small> source code (the
+    stuff with the angle brackets) to be seen by users...&rsquo;&rsquo;
+   </p>
+   <p align="right">
+    <a href="#ber2001">
+     [<small>BER</small> 2001]
+    </a>
+   </p>
+  </blockquote>
+  <p align="justify">
+   <i>Bracy</i> (pronounced <i>bray-see</i>) is a minimalist document
+   compiler. It makes <small>HTML</small>
+   <a href="#pow2001">
+    [<small>POW</small>&nbsp;2001]
+   </a>
+   files that are supposed to look like printed pages when displayed by a web
+   browser. (The page you&rsquo;re reading now was made by Bracy.) Most
+   browsers aren&rsquo;t very good at rendering text, but Bracy tries as hard
+   as it can anyway. Bracy also tries to produce <small>HTML</small>
+   that&rsquo;s nicely indented, so it&rsquo;s readable by Humans (not just
+   programs). This is useful if you want to edit an <small>HTML</small>
+   file made by Bracy, but you don&rsquo;t have Bracy, or you don&rsquo;t have
+   the Bracy source that produced the <small>HTML</small> file, or both.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H<small>TML</small>&rsquo;s syntax is
+   incredibly verbose and inconsistent: some features are implemented as tags,
+   others as attributes of tags, and still others as styles associated with
+   tags, all without apparent design principles. And despite claims to the
+   contrary, there is no standard <small>HTML</small>, since no two
+   browsers seem to agree on what <small>HTML</small>&rsquo;s constructs
+   mean, or what subset of them should be implemented. As a result,
+   <small>HTML</small> is nearly useless to the programmer who wants his
+   or her code to work the same way on any computer. (Please
+   <i>don&rsquo;t</i> write to say that <small>HTML</small> was
+   created by the gods and it&rsquo;s a sin for me to criticize it, or any
+   similar nonsense.)
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The important word in the previous paragraph
+   was <i>nearly.</i> H<small>TML</small> does seem to have a few
+   constructs that work almost the same way in all browsers. Bracy tries to use
+   these few constructs exclusively. It hides them behind a simpler notation so
+   you don&rsquo;t have to see them, or even think about them. The good news,
+   then, is that Bracy is easier to use than <small>HTML</small>. The bad
+   news is that Bracy can&rsquo;t do everything <small>HTML</small> can.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bracy is written in the experimental
+   programming language <i>Orson</i>
+   <a href="#moe2017">
+    [<small>MOE</small>&nbsp;2017],
+   </a>
+   which I designed and implemented. One reason I wrote Bracy is to find bugs
+   in my Orson compiler. I found lots of them. I also wanted a relatively
+   painless way to write Orson documentation in <small>HTML</small>. There
+   are mechanisms in Bracy to facilitate this, but you can still use Bracy even
+   if you don&rsquo;t care about Orson.
+  </p>
+  <a name="running">
+  </a>
+  <p>
+   <b>2. Running Bracy.</b>
+  </p>
+  <p align="justify">
+   Bracy works under Unix-like operating systems, such as
+   G<small>NU</small>/Linux. This section assumes that Bracy is already
+   installed on your system.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; To run Bracy, you must first make a file
+   containing Bracy source code, using your favorite text editor. (Bracy source
+   code will be described in the remainder of this manual.) The name of the
+   Bracy source file must end with the suffix &lsquo;<tt>.by</tt>&rsquo;.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bracy source files use 31-bit characters,
+   encoded using <small>UTF</small>-8. This includes the familiar 21-bit
+   Unicode characters
+   <a href="#uni2006">
+    [<small>UNI</small> 2006]
+   </a>
+   and the 7-bit <small>ASCII</small> characters
+   <a href="#ans1986">
+    [<small>ANS</small> 1986]
+   </a>
+   as subsets. If you write source files on a Unix-like system in Unicode or in
+   <small>ASCII</small>, then you don&rsquo;t need to care about this:
+   everything should work fine.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Suppose you have a Bracy source file called
+   <tt>Manual.by.</tt> You can translate it to <small>HTML</small> by
+   typing the command <tt>bracy</tt>&nbsp;<tt>Manual.by</tt> to the
+   Unix shell. Bracy then makes an object file called <tt>Manual.html</tt>
+   that contains <small>HTML</small> code. This file can be viewed with a
+   web browser. If your source file has syntax errors, then Bracy will also
+   print messages that tell you where the errors appear.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bracy makes <small>HTML</small> object
+   files using <small>ASCII</small> characters exclusively. A character
+   not in <small>ASCII</small> is rendered as
+   &lsquo;<tt>&amp;#</tt><i>d</i><tt>;</tt>&rsquo; where
+   <i>d</i> is a series of one or more digits, the character&rsquo;s
+   decimal numeric code. For example, Bracy renders the character &#945; (Greek
+   lower-case <i>alpha</i>) as &lsquo;<tt>&amp;#945;</tt>&rsquo;.
+   Some browsers can&rsquo;t display characters like these.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The <tt>bracy</tt> command has options
+   that are not discussed here. Type <tt>man</tt>&nbsp;<tt>bracy</tt>
+   to see what they are, and how to use them. You can also type
+   <tt>man</tt>&nbsp;<tt>ascii</tt> to find out more about the
+   <small>ASCII</small> character set. On many systems you can type
+   <tt>man</tt>&nbsp;<tt>unicode</tt> and
+   <tt>man</tt>&nbsp;<tt>utf-8</tt> to find out about Bracy&rsquo;s
+   character encoding.
+  </p>
+  <a name="syntax">
+  </a>
+  <p>
+   <b>3. Syntax.</b>
+  </p>
+  <p align="justify">
+   Bracy&rsquo;s syntax was inspired by that of the document compiler
+   S<small>CRIBE</small>
+   <a href="#rei1980">
+    [<small>REI</small>&nbsp;1980].
+   </a>
+   The syntax has two parts. The first deals with <i>styles,</i> which
+   describe how characters will appear. The second deals with
+   <i>scopes,</i> most of which describe how text is rendered into
+   <small>HTML</small>.
+  </p>
+  <a name="styles">
+  </a>
+  <p>
+   <b>3.1. Styles.</b>
+  </p>
+  <p align="justify">
+   Bracy has ten character styles. They were chosen partly for their potential
+   usefulness, and partly because they are likely to be supported by all web
+   browsers
+   <a href="#pow2001">
+    [<small>POW</small>&nbsp;2001].
+   </a>
+   Each style is written as
+   <tt>{</tt><i>style</i>&nbsp;<i>text</i><tt>}</tt>, where
+   <i>style</i> is a series of one or more characters that tells what
+   style you want, and <i>text</i> is the text that you want to appear in
+   that style.
+  </p>
+  <ul>
+   <li>
+   <p align="justify">
+    <tt>{b Abc}</tt> gives you <b>Abc</b> in boldface.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{c Abc}</tt> gives you A<small>BC</small> in small capitals.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{i Abc}</tt> gives you <i>Abc</i> in italics.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{g Abc}</tt> gives you <font color="#A9A9A9">Abc</font> in
+    gray.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{s Abc}</tt> gives you <strike>Abc</strike> struck through.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{t Abc}</tt> gives you <tt>Abc</tt> in typescript.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{u Abc}</tt> gives you <u>Abc</u> underlined.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{+ Abc}</tt> gives you <sup>Abc</sup> in superscript.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{- Abc}</tt> gives you <sub>Abc</sub> in subscript.
+   </p>
+   <li>
+   <p align="justify">
+    <tt>{- Abc {= Ez}}</tt> gives you <sub>Abc
+    <sub>Ez</sub></sub> in subscript and sub-subscript.
+   </p>
+  </ul>
+  <p align="justify">
+   Bracy simulates the small capitals style by using upper case letters in a
+   reduced size. Also, underlined words displayed with
+   &lsquo;<tt>u</tt>&rsquo; are not links, and must not be confused with
+   them.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Character styles can be nested, so that
+   <tt>{b</tt>&nbsp;<tt>{i</tt>&nbsp;<tt>Abc}}</tt> gives you
+   <b><i>Abc</i></b> in boldface italic. Similarly,
+   <tt>{i</tt>&nbsp;<tt>{c</tt>&nbsp;<tt>{t</tt>&nbsp;<tt>Abc}}}</tt>
+   gives you <i><tt>A<small>BC</small></tt></i> in italic small
+   capital typescript. In principle, you should be able to get any combination
+   of styles, but in practice, some combinations may not look good with your
+   browser. For example, using &lsquo;<tt>+</tt>&rsquo; and
+   &lsquo;<tt>-</tt>&rsquo; together may give results different from what
+   you expect.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bracy doesn&rsquo;t care about the order of
+   nested styles, so
+   <tt>{i</tt>&nbsp;<tt>{b</tt>&nbsp;<tt>Abc}}</tt> gives you
+   the same results as
+   <tt>{b</tt>&nbsp;<tt>{i</tt>&nbsp;<tt>Abc}}.</tt> Duplication
+   of styles has no effect, so if you write
+   <tt>{b</tt>&nbsp;<tt>{b</tt>&nbsp;<tt>Abc}},</tt> then
+   you&rsquo;ll get the same results as
+   <tt>{b</tt>&nbsp;<tt>Abc}</tt>; you won&rsquo;t get boldface
+   that&rsquo;s twice as bold. You can abbreviate a nested style like
+   <tt>{b</tt>&nbsp;<tt>{i</tt>&nbsp;<tt>Abc}}</tt> by writing
+   <tt>{bi</tt>&nbsp;<tt>Abc}</tt> or
+   <tt>{ib</tt>&nbsp;<tt>Abc},</tt> since order doesn&rsquo;t matter.
+   You could even write <tt>{bibi</tt>&nbsp;<tt>Abc},</tt> since
+   duplication doesn&rsquo;t matter either, but that would be silly. You can
+   abbreviate any number of nested styles in this way.
+  </p>
+  <a name="bbb">
+  </a>
+  <p>
+   <b>3.2. Braces, backslashes, and blanks.</b>
+  </p>
+  <p align="justify">
+   As the previous examples suggest, Bracy gets its name because it uses the
+   open brace &lsquo;<tt>{</tt>&rsquo; and the closing brace
+   &lsquo;<tt>}</tt>&rsquo; as grouping symbols. Some people call these
+   characters &lsquo;&lsquo;curly brackets.&rsquo;&rsquo;
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If you want to show braces in your text, then
+   you must prefix them with backslashes, as in &lsquo;<tt>\{</tt>&rsquo;
+   and &lsquo;<tt>\}</tt>&rsquo;. Braces prefixed in this way will be
+   treated as ordinary characters, not as grouping symbols. If you want to show
+   a backslash in your text, then you must also prefix it with a backslash, as
+   in &lsquo;<tt>\\</tt>&rsquo;. For example, if you write
+   &lsquo;<tt>\{\\\}</tt>&rsquo;, then the browser will display it as
+   &lsquo;<tt>{\}</tt>&rsquo;.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When a web browser is displaying your text,
+   it might break a line where a blank appears. Sometimes you don&rsquo;t want
+   that to happen. You can avoid this problem by writing a blank prefixed by a
+   backslash: &lsquo;<tt>\&nbsp;</tt>&rsquo;. This is called a
+   <i>nonbreaking blank.</i> For example, if you write
+   &lsquo;<tt>a\&nbsp;b\&nbsp;c</tt>&rsquo; then Bracy will make sure
+   <tt>a</tt>, <tt>b</tt>, and <tt>c</tt> all stay on the same
+   line.
+  </p>
+  <a name="scopes">
+  </a>
+  <p>
+   <b>3.3. Scopes.</b>
+  </p>
+  <p align="justify">
+   Bracy uses <i>scopes</i> to determine how your text should be organized
+   into lines and paragraphs, and how those lines and paragraphs should be
+   displayed. A scope is written as
+   <tt>{</tt><i>scope</i>&nbsp;<i>text</i><tt>},</tt> where
+   <i>scope</i> is the name of the scope. Depending on which scope is
+   being used, the <i>text</i> may be a series of words, a series of
+   lines, a series of paragraphs, a series of scopes, or a series of both words
+   and scopes. These are defined in the following way.
+  </p>
+  <ul>
+   <li>
+   <p align="justify">
+    A <i>newline</i> is the invisible character that you get when you
+    press the <small>RETURN</small> key or the <small>ENTER</small>
+    key.
+   </p>
+   <li>
+   <p align="justify">
+    A <i>word</i> is a series of one or more characters, terminated by a
+    blank, a newline, or a brace.
+   </p>
+   <li>
+   <p align="justify">
+    A <i>line</i> is a series of zero or more words, separated by one or
+    more blanks, and terminated by a newline or a closing brace.
+   </p>
+   <li>
+   <p align="justify">
+    An <i>empty line</i> is a line with zero words: all it has is a
+    newline or a closing brace at the end.
+   </p>
+   <li>
+   <p align="justify">
+    A <i>paragraph</i> is a series of one or more non-empty lines,
+    terminated by an empty line or by a closing brace.
+   </p>
+  </ul>
+  <p align="justify">
+   A Bracy source file is a series of zero or more scopes. These scopes are
+   described in the rest of this manual.
+  </p>
+  <a name="left">
+  </a>
+  <p>
+   <b>3.3.1. Left.</b>
+  </p>
+  <p align="justify">
+   The <i>left</i> scope is simplest. It displays a series of paragraphs
+   whose lines are flush left and filled. The first paragraph is not indented,
+   but the second and later paragraphs are. The text in most web pages appears
+   this way. For example, if your source file contains this:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{b&nbsp;Thelma&nbsp;Suzette&nbsp;Bracy}&nbsp;(January&nbsp;2,&nbsp;1919&nbsp;&#8211;&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;October&nbsp;9,&nbsp;1967)&nbsp;was&nbsp;an&nbsp;American&nbsp;science&nbsp;fiction&nbsp;writer.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Along&nbsp;with&nbsp;Isaac&nbsp;Asimov,&nbsp;L.&nbsp;Sprague&nbsp;de&nbsp;Camp,&nbsp;Robert&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Heinlein,&nbsp;and&nbsp;A.&nbsp;E.&nbsp;van&nbsp;Vogt,&nbsp;she&nbsp;was&nbsp;one&nbsp;of&nbsp;many&nbsp;new&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;writers&nbsp;discovered&nbsp;in&nbsp;the&nbsp;late&nbsp;1930&rsquo;s&nbsp;by&nbsp;John&nbsp;W.&nbsp;Campbell,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;editor&nbsp;of&nbsp;{i&nbsp;Astounding&nbsp;Science&nbsp;Fiction}&nbsp;magazine.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Bracy&nbsp;is&nbsp;well&nbsp;known&nbsp;for&nbsp;her&nbsp;short&nbsp;stories&nbsp;that&nbsp;eerily&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;predicted&nbsp;many&nbsp;aspects&nbsp;of&nbsp;modern&nbsp;computer&nbsp;technology,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;including&nbsp;cell&nbsp;phones,&nbsp;programming&nbsp;languages,&nbsp;and&nbsp;the&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Internet.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Some&nbsp;claim&nbsp;that&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;Internet&nbsp;language&nbsp;{c&nbsp;html}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;was&nbsp;obtained&nbsp;by&nbsp;permuting&nbsp;the&nbsp;consonants&nbsp;of&nbsp;Bracy&rsquo;s&nbsp;first&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;name,&nbsp;but&nbsp;there&nbsp;is&nbsp;no&nbsp;evidence&nbsp;for&nbsp;this.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;In&nbsp;many&nbsp;of&nbsp;Bracy&rsquo;s&nbsp;stories,&nbsp;the&nbsp;protagonist&nbsp;is&nbsp;Dr.&nbsp;Jules&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Webster,&nbsp;a&nbsp;private&nbsp;detective&nbsp;with&nbsp;a&nbsp;doctorate&nbsp;in&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&lsquo;&lsquo;electrolinguistics.&rsquo;&rsquo;&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;The&nbsp;&lsquo;&lsquo;electronic&nbsp;brain&rsquo;&rsquo;&nbsp;owned&nbsp;by&nbsp;a&nbsp;large&nbsp;organization&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;mysteriously&nbsp;fails,&nbsp;and&nbsp;the&nbsp;reclusive&nbsp;Webster&nbsp;is&nbsp;hired&nbsp;to&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;repair&nbsp;it.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;He&nbsp;does&nbsp;so&nbsp;by&nbsp;typing&nbsp;a&nbsp;cleverly&nbsp;written&nbsp;&lsquo;&lsquo;logigram&rsquo;&rsquo;&nbsp;into&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;the&nbsp;brain,&nbsp;using&nbsp;a&nbsp;&lsquo;&lsquo;keypunch.&rsquo;&rsquo;}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   then the browser will display these three paragraphs:
+  </p>
+  <blockquote>
+   <p>
+    <b>Thelma Suzette Bracy</b> (January 2, 1919 &#8211; October 9, 1967)
+    was an American science fiction writer. Along with Isaac Asimov, L. Sprague
+    de Camp, Robert Heinlein, and A. E. van Vogt, she was one of many new
+    writers discovered in the late 1930&rsquo;s by John W. Campbell, editor of
+    <i>Astounding Science Fiction</i> magazine.
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Bracy is well known for her short stories
+    that eerily predicted many aspects of modern computer technology, including
+    cell phones, programming languages, and the Internet. Some claim that the
+    name of the Internet language <small>HTML</small> was obtained by
+    permuting the consonants of Bracy&rsquo;s first name, but there is no
+    evidence for this.
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In many of Bracy&rsquo;s stories, the
+    protagonist is Dr. Jules Webster, a private detective with a doctorate in
+    &lsquo;&lsquo;electrolinguistics.&rsquo;&rsquo; The
+    &lsquo;&lsquo;electronic brain&rsquo;&rsquo; owned by a large organization
+    mysteriously fails, and the reclusive Webster is hired to repair it. He
+    does so by typing a cleverly written &lsquo;&lsquo;logigram&rsquo;&rsquo;
+    into the brain, using a &lsquo;&lsquo;keypunch.&rsquo;&rsquo;
+   </p>
+  </blockquote>
+  <p align="justify">
+   Biographical information about Thelma Bracy is from the introduction to
+   <i>Beyond Computation: The Complete Short Fiction of Thelma Bracy</i>
+   <a href="#cha2004">
+    [<small>CHA</small> 2004].
+   </a>
+  </p>
+  <a name="right">
+  </a>
+  <p>
+   <b>3.3.2. Right.</b>
+  </p>
+  <p align="justify">
+   The <i>right</i> scope displays a series of paragraphs whose lines are
+   flush right and filled. Paragraphs are not indented. This usually works well
+   only for short texts, such as quotations. For example, this:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{right&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Computers&nbsp;don&rsquo;t&nbsp;really&nbsp;work.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;I&nbsp;just&nbsp;knew&nbsp;that&nbsp;before&nbsp;you&nbsp;did.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&#8212;&nbsp;Thelma&nbsp;Bracy&nbsp;(1966)}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   will appear like this:
+  </p>
+  <blockquote>
+   <p align="right">
+    Computers don&rsquo;t really work. I just knew that before you did.
+    <br />
+    &#8212; Thelma Bracy (1966)
+   </p>
+  </blockquote>
+  <a name="justify">
+  </a>
+  <p>
+   <b>3.3.3. Justify.</b>
+  </p>
+  <p align="justify">
+   The <i>justify</i> scope displays a series of paragraphs whose lines
+   are justified and filled. The first paragraph is not indented, but the
+   second and later paragraphs are. Text in books and papers is typically
+   justified, although text in most web pages is not (this page isn&rsquo;t
+   typical). For example, the source text:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Bracy&rsquo;s&nbsp;first&nbsp;published&nbsp;story,&nbsp;&lsquo;&lsquo;Fruit&nbsp;Counter,&rsquo;&rsquo;&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;appeared&nbsp;in&nbsp;the&nbsp;March&nbsp;1938&nbsp;issue&nbsp;of&nbsp;{i&nbsp;Astounding.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;The&nbsp;electronic&nbsp;brain&nbsp;that&nbsp;runs&nbsp;the&nbsp;assembly&nbsp;line&nbsp;of&nbsp;the&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;National&nbsp;Canned&nbsp;Produce&nbsp;Company&nbsp;is&nbsp;inexplicably&nbsp;putting&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;pears&nbsp;into&nbsp;peach&nbsp;cans.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Baffled&nbsp;company&nbsp;engineers&nbsp;call&nbsp;Jules&nbsp;Webster&nbsp;in&nbsp;to&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;investigate.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;When&nbsp;Webster&nbsp;arrives,&nbsp;he&nbsp;thinks&nbsp;for&nbsp;a&nbsp;few&nbsp;moments,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;then&nbsp;asks&nbsp;to&nbsp;see&nbsp;a&nbsp;can&nbsp;of&nbsp;peas.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;The&nbsp;engineers&nbsp;protest&nbsp;that&nbsp;the&nbsp;problem&nbsp;is&nbsp;with&nbsp;pears,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;not&nbsp;peas,&nbsp;but&nbsp;he&nbsp;repeats&nbsp;his&nbsp;request.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;When&nbsp;they&nbsp;get&nbsp;him&nbsp;a&nbsp;can&nbsp;of&nbsp;peas&nbsp;from&nbsp;the&nbsp;warehouse,&nbsp;he&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;opens&nbsp;it&#8212;and&nbsp;it&nbsp;contains&nbsp;pears,&nbsp;too!&nbsp;</tt>
+    <br />
+    <tt>&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;A&nbsp;grinning&nbsp;Webster&nbsp;explains&nbsp;to&nbsp;the&nbsp;astonished&nbsp;engineers&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;that&nbsp;they&nbsp;have&nbsp;mistakenly&nbsp;instructed&nbsp;the&nbsp;brain&nbsp;to&nbsp;recognize&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;only&nbsp;the&nbsp;first&nbsp;three&nbsp;letters&nbsp;of&nbsp;each&nbsp;fruit&nbsp;and&nbsp;vegetable.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Since&nbsp;&lsquo;&lsquo;pears,&rsquo;&rsquo;&nbsp;&lsquo;&lsquo;peaches,&rsquo;&rsquo;&nbsp;and&nbsp;&lsquo;&lsquo;peas&rsquo;&rsquo;&nbsp;begin&nbsp;with&nbsp;the&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;same&nbsp;three&nbsp;letters,&nbsp;the&nbsp;brain&nbsp;cannot&nbsp;distinguish&nbsp;them.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;In&nbsp;a&nbsp;dramatic&nbsp;keypunching&nbsp;session,&nbsp;Webster&nbsp;changes&nbsp;a&nbsp;3&nbsp;to&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;a&nbsp;4,&nbsp;and&nbsp;the&nbsp;problem&nbsp;is&nbsp;solved.}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   will be displayed like this:
+  </p>
+  <blockquote>
+   <p align="justify">
+    Bracy&rsquo;s first published story, &lsquo;&lsquo;Fruit
+    Counter,&rsquo;&rsquo; appeared in the March 1938 issue of
+    <i>Astounding.</i> The electronic brain that runs the assembly line of
+    the National Canned Produce Company is inexplicably putting pears into
+    peach cans. Baffled company engineers call Jules Webster in to investigate.
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; When Webster arrives, he thinks for a few
+    moments, then asks to see a can of peas. The engineers protest that the
+    problem is with pears, not peas, but he repeats his request. When they get
+    him a can of peas from the warehouse, he opens it&#8212;and it contains
+    pears, too!
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; A grinning Webster explains to the
+    astonished engineers that they have mistakenly instructed the brain to
+    recognize only the first three letters of each fruit and vegetable. Since
+    &lsquo;&lsquo;pears,&rsquo;&rsquo; &lsquo;&lsquo;peaches,&rsquo;&rsquo; and
+    &lsquo;&lsquo;peas&rsquo;&rsquo; begin with the same three letters, the
+    brain cannot distinguish them. In a dramatic keypunching session, Webster
+    changes a 3 to a 4, and the problem is solved.
+   </p>
+  </blockquote>
+  <a name="center">
+  </a>
+  <p>
+   <b>3.3.4. Center.</b>
+  </p>
+  <p align="justify">
+   The <i>center</i> scope displays a series of lines, each of which is
+   centered. Paragraph breaks are rendered as empty lines. For example, this:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{center&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{b&nbsp;Peas&nbsp;and&nbsp;Queues}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Thelma&nbsp;Bracy&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;February&nbsp;13,&nbsp;1938}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   Produces this:
+  </p>
+  <p align="center">
+   <b>Peas and Queues</b>
+   <br />
+   <br />
+   Thelma Bracy
+   <br />
+   February 13, 1938
+  </p>
+  <p align="justify">
+   As the example suggests, the <i>center</i> scope works best with short
+   texts. It&rsquo;s often used to make headings and titles.
+  </p>
+  <a name="bullet">
+  </a>
+  <p>
+   <b>3.3.5. Bullet.</b>
+  </p>
+  <p align="justify">
+   The <i>bullet</i> scope displays a series of scopes and words with a
+   symbol in front of each. The symbol is chosen by your browser, but
+   it&rsquo;s typically some kind of raised dot, called a
+   &lsquo;&lsquo;bullet.&rsquo;&rsquo; For example, this:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{bullet&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Thelma&nbsp;Bracy&nbsp;was&nbsp;born&nbsp;in&nbsp;Far&nbsp;Rockaway,&nbsp;New&nbsp;York.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Her&nbsp;family&nbsp;was&nbsp;of&nbsp;French&nbsp;Canadian&nbsp;ancestry.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;had&nbsp;two&nbsp;older&nbsp;sisters,&nbsp;Annette&nbsp;and&nbsp;Yvette.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Bracy&nbsp;loved&nbsp;science,&nbsp;but&nbsp;her&nbsp;sisters&nbsp;teased&nbsp;her,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;saying&nbsp;she&nbsp;couldn&rsquo;t&nbsp;be&nbsp;a&nbsp;scientist.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;began&nbsp;reading&nbsp;science&nbsp;fiction&nbsp;magazines&nbsp;instead.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;When&nbsp;she&nbsp;was&nbsp;10,&nbsp;she&nbsp;wrote&nbsp;her&nbsp;first&nbsp;science&nbsp;fiction&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;story,&nbsp;in&nbsp;which&nbsp;portable&nbsp;telephones&nbsp;secretly&nbsp;track&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;their&nbsp;owners&rsquo;&nbsp;movements.}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   becomes this:
+  </p>
+  <blockquote>
+   <ul>
+    <li>
+    <p>
+     Thelma Bracy was born in Far Rockaway, New York.
+    </p>
+    <li>
+    <p>
+     Her family was of French Canadian ancestry. She had two older sisters,
+     Annette and Yvette.
+    </p>
+    <li>
+    <p>
+     Bracy loved science, but her sisters teased her, saying she couldn&rsquo;t
+     be a scientist. She began reading science fiction magazines instead.
+    </p>
+    <li>
+    <p>
+     When she was 10, she wrote her first science fiction story, in which
+     portable telephones secretly track their owners&rsquo; movements.
+    </p>
+   </ul>
+  </blockquote>
+  <p align="justify">
+   Even though <i>left</i> scopes were used in this example, any scopes
+   may appear inside <i>bullet</i> scopes. I could have used
+   <i>justify</i> scopes, or some could be <i>left</i> scopes and
+   others could be <i>justify</i> scopes, etc.
+  </p>
+  <a name="column">
+  </a>
+  <p>
+   <b>3.3.6. Column.</b>
+  </p>
+  <p align="justify">
+   The <i>column</i> scope lets you put many scopes in a place where only
+   one would ordinarily be allowed. For example, this <i>bullet</i> scope
+   has a <i>column</i> scope nested inside it.
+  </p>
+  <blockquote>
+   <p>
+    <tt>{bullet&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Bracy&nbsp;attended&nbsp;City&nbsp;College&nbsp;in&nbsp;New&nbsp;York,&nbsp;where&nbsp;she&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;majored&nbsp;in&nbsp;mathematics.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;While&nbsp;in&nbsp;college,&nbsp;she&nbsp;submitted&nbsp;stories&nbsp;to&nbsp;science&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;fiction&nbsp;magazines&nbsp;like&nbsp;the&nbsp;ones&nbsp;she&nbsp;had&nbsp;read&nbsp;as&nbsp;a&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;child.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{column&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Her&nbsp;stories&nbsp;were&nbsp;about&nbsp;a&nbsp;mathematical&nbsp;detective&nbsp;named&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jules&nbsp;Webster,&nbsp;who&nbsp;lived&nbsp;thirty&nbsp;years&nbsp;in&nbsp;her&nbsp;future.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{bullet&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;named&nbsp;him&nbsp;after&nbsp;Jules&nbsp;Verne,&nbsp;her&nbsp;favorite&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;author.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;called&nbsp;him&nbsp;Webster&nbsp;because&nbsp;she&nbsp;liked&nbsp;to&nbsp;read&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dictionaries.}}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;All&nbsp;her&nbsp;stories&nbsp;were&nbsp;rejected.}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   It will be displayed like this. When you nest one <i>bullet</i> scope
+   inside another, the browser may choose different bullet symbols for inner
+   scopes than for outer scopes.
+  </p>
+  <blockquote>
+   <ul>
+    <li>
+    <p>
+     Bracy attended City College in New York, where she majored in mathematics.
+    </p>
+    <li>
+    <p>
+     While in college, she submitted stories to science fiction magazines like
+     the ones she had read as a child.
+    </p>
+    <li>
+    <p>
+     Her stories were about a mathematical detective named Jules Webster, who
+     lived thirty years in her future.
+    </p>
+    <ul>
+     <li>
+     <p>
+      She named him after Jules Verne, her favorite author.
+     </p>
+     <li>
+     <p>
+      She called him Webster because she liked to read dictionaries.
+     </p>
+    </ul>
+    <li>
+    <p>
+     All her stories were rejected.
+    </p>
+   </ul>
+  </blockquote>
+  <p align="justify">
+   The <i>column</i> scope must have at least one scope nested inside it,
+   but it&rsquo;s silly to use it with less than two nested scopes.
+  </p>
+  <a name="number">
+  </a>
+  <p>
+   <b>3.3.7. Number.</b>
+  </p>
+  <p align="justify">
+   The <i>number</i> scope is like the <i>bullet</i> scope, but it
+   displays a series of scopes and words with a number in front of each. The
+   numbers start at one, and are incremented for each scope and word. For
+   example, this:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{number&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;One&nbsp;day&nbsp;Bracy&nbsp;got&nbsp;a&nbsp;letter&nbsp;from&nbsp;John&nbsp;W.&nbsp;Campbell&nbsp;at&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{i&nbsp;Astounding}&nbsp;that&nbsp;wasn&rsquo;t&nbsp;a&nbsp;rejection.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;He&nbsp;suggested&nbsp;she&nbsp;write&nbsp;stories&nbsp;in&nbsp;which&nbsp;Jules&nbsp;Webster&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;solves&nbsp;mysteries&nbsp;involving&nbsp;&lsquo;&lsquo;electronic&nbsp;brains.&rsquo;&rsquo;}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;wrote&nbsp;a&nbsp;story&nbsp;called&nbsp;&lsquo;&lsquo;Peas&nbsp;and&nbsp;Queues&rsquo;&rsquo;&nbsp;and&nbsp;sent&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;it&nbsp;to&nbsp;Campbell.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;He&nbsp;bought&nbsp;it,&nbsp;but&nbsp;changed&nbsp;the&nbsp;title&nbsp;to&nbsp;&lsquo;&lsquo;Fruit&nbsp;Counter&rsquo;&rsquo;&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;publication.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;By&nbsp;the&nbsp;time&nbsp;she&nbsp;graduated&nbsp;from&nbsp;college,&nbsp;Bracy&nbsp;had&nbsp;sold&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Campbell&nbsp;six&nbsp;more&nbsp;stories.}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   becomes this:
+  </p>
+  <blockquote>
+   <ol>
+    <li>
+    <p>
+     One day Bracy got a letter from John W. Campbell at <i>Astounding</i>
+     that wasn&rsquo;t a rejection.
+    </p>
+    <li>
+    <p>
+     He suggested she write stories in which Jules Webster solves mysteries
+     involving &lsquo;&lsquo;electronic brains.&rsquo;&rsquo;
+    </p>
+    <li>
+    <p>
+     She wrote a story called &lsquo;&lsquo;Peas and Queues&rsquo;&rsquo; and
+     sent it to Campbell.
+    </p>
+    <li>
+    <p>
+     He bought it, but changed the title to &lsquo;&lsquo;Fruit
+     Counter&rsquo;&rsquo; for publication.
+    </p>
+    <li>
+    <p>
+     By the time she graduated from college, Bracy had sold Campbell six more
+     stories.
+    </p>
+   </ol>
+  </blockquote>
+  <p align="justify">
+   The browser chooses the format in which the numbers will be displayed. If
+   you nest one <i>number</i> scope inside another, the browser may show
+   the numbers in the inner scopes differently from those in outer scopes.
+  </p>
+  <a name="itemize">
+  </a>
+  <p>
+   <b>3.3.8. Itemize.</b>
+  </p>
+  <p align="justify">
+   The <i>itemize</i> scope resembles the <i>bullet</i> and
+   <i>number</i> scopes. It displays a series of nested scopes and words
+   with a short text (often a single word) in front of each. For example, this:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{itemize&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;Fruit&nbsp;Counter.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Webster&nbsp;repairs&nbsp;an&nbsp;electronic&nbsp;brain&nbsp;that&nbsp;recognizes&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;only&nbsp;the&nbsp;first&nbsp;three&nbsp;letters&nbsp;of&nbsp;fruit&nbsp;and&nbsp;vegetable&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;names.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;Dangerously&nbsp;Unbalanced.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Webster&nbsp;narrowly&nbsp;escapes&nbsp;death&nbsp;after&nbsp;the&nbsp;Army&rsquo;s&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;electronic&nbsp;brain&nbsp;gets&nbsp;keypunched&nbsp;logigrams&nbsp;with&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;too&nbsp;many&nbsp;parentheses.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Policy.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Webster&nbsp;is&nbsp;called&nbsp;to&nbsp;Washington&nbsp;D.C.&nbsp;when&nbsp;an&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;electronic&nbsp;brain&nbsp;forces&nbsp;everyone&nbsp;to&nbsp;buy&nbsp;insurance&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;they&nbsp;do&nbsp;not&nbsp;want.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{left&nbsp;Give&nbsp;Me&nbsp;a&nbsp;Break.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;world&rsquo;s&nbsp;telephones&nbsp;stop&nbsp;working&nbsp;when&nbsp;someone&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;forgets&nbsp;to&nbsp;keypunch&nbsp;a&nbsp;special&nbsp;word&nbsp;into&nbsp;the&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;electronic&nbsp;brain&nbsp;that&nbsp;controls&nbsp;them.}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   becomes this:
+  </p>
+  <blockquote>
+   <dl compact="compact">
+    <dt>
+     <p>
+      Fruit Counter.
+     </p>
+    </dt>
+    <dd>
+     <p align="justify">
+      Webster repairs an electronic brain that recognizes only the first three
+      letters of fruit and vegetable names.
+     </p>
+    </dd>
+    <dt>
+     <p>
+      Dangerously Unbalanced.
+     </p>
+    </dt>
+    <dd>
+     <p align="justify">
+      Webster narrowly escapes death after the Army&rsquo;s electronic brain
+      gets keypunched logigrams with too many parentheses.
+     </p>
+    </dd>
+    <dt>
+     <p>
+      Policy.
+     </p>
+    </dt>
+    <dd>
+     <p align="justify">
+      Webster is called to Washington D.C. when an electronic brain forces
+      everyone to buy insurance they do not want.
+     </p>
+    </dd>
+    <dt>
+     <p>
+      Give Me a Break.
+     </p>
+    </dt>
+    <dd>
+     <p align="justify">
+      The world&rsquo;s telephones stop working when someone forgets to
+      keypunch a special word into the electronic brain that controls them.
+     </p>
+    </dd>
+   </dl>
+  </blockquote>
+  <p align="justify">
+   The odd-numbered words or scopes inside <i>itemize</i> state things to
+   be defined, and the even-numbered ones state their corresponding
+   definitions. As a result, the <i>itemize</i> scope must have an even
+   number of things nested inside it.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Again, I could have used scopes other than
+   <i>justify</i> in this example. I could have used <i>bullet, left,
+   number,</i> another <i>itemize,</i> or a mixture of these, along
+   with <i>column.</i> However, it&rsquo;s best to keep things simple,
+   since some browsers can&rsquo;t display complex text in a visually appealing
+   way.
+  </p>
+  <a name="display">
+  </a>
+  <p>
+   <b>3.3.9. Display.</b>
+  </p>
+  <p align="justify">
+   The <i>display</i> scope is unlike the scopes you&rsquo;ve seen so far,
+   because it works with lines instead of words and paragraphs. It makes the
+   browser show a series of unfilled lines, flush left, in which all blanks are
+   treated as nonbreaking blanks. This is useful for poetry or other
+   irregularly indented English text. For example, this limerick is due to an
+   anonymous wag at the 1941 World Science Fiction Convention in Denver,
+   Colorado.
+  </p>
+  <blockquote>
+   <p>
+    <tt>{display&nbsp;</tt>
+    <br />
+    <tt>There&nbsp;is&nbsp;a&nbsp;young&nbsp;woman&nbsp;called&nbsp;Bracy,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whose&nbsp;clothes&nbsp;aren&rsquo;t&nbsp;frilly&nbsp;or&nbsp;lacy.&nbsp;</tt>
+    <br />
+    <tt>She&nbsp;expertly&nbsp;writes&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;man-machine&nbsp;fights&nbsp;</tt>
+    <br />
+    <tt>and&nbsp;electronic&nbsp;brains&nbsp;going&nbsp;crazy.}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   The browser shows it like this:
+  </p>
+  <blockquote>
+   <p>
+    There&nbsp;is&nbsp;a&nbsp;young&nbsp;woman&nbsp;called&nbsp;Bracy,&nbsp;
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;whose&nbsp;clothes&nbsp;aren&rsquo;t&nbsp;frilly&nbsp;or&nbsp;lacy.&nbsp;
+    <br />
+    She&nbsp;expertly&nbsp;writes&nbsp;
+    <br />
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;about&nbsp;man-machine&nbsp;fights&nbsp;
+    <br />
+    and&nbsp;electronic&nbsp;brains&nbsp;going&nbsp;crazy.
+   </p>
+  </blockquote>
+  <p align="justify">
+   In a <i>display</i> scope, the word <tt>display</tt> must be
+   immediately followed by a newline. This is because <i>display</i> works
+   with lines: it forces you to start a new line for it to work with.
+  </p>
+  <a name="indent">
+  </a>
+  <p>
+   <b>3.3.10. Indent.</b>
+  </p>
+  <p align="justify">
+   The <i>indent</i> scope is like <i>display,</i> except that it
+   maintains the alignment of the first nonblank character in each line with
+   respect to the other lines. This is intended to support the indenting
+   conventions used with programming languages.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It&rsquo;s easiest to show what
+   <i>indent</i> does by means of an example. This is part of an Orson
+   program that writes the value associated with an integer key <i>k</i>
+   in a binary search tree <i>r.</i> (See any undergraduate Data
+   Structures textbook for details.)
+  </p>
+  <blockquote>
+   <p>
+    <tt>{indent&nbsp;</tt>
+    <br />
+    <tt>(with&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;var&nbsp;bool&nbsp;g&nbsp;:&#8722;&nbsp;true&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;var&nbsp;tree&nbsp;s&nbsp;:&#8722;&nbsp;r&nbsp;</tt>
+    <br />
+    <tt>&nbsp;do&nbsp;(while&nbsp;g&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do&nbsp;(if&nbsp;s&nbsp;=&nbsp;nil&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;throw("keypunch&nbsp;error")&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;(with&nbsp;int&nbsp;t&nbsp;:&#8722;&nbsp;k&nbsp;&#8722;&nbsp;s&#8593;.key&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do&nbsp;(if&nbsp;t&nbsp;&lt;&nbsp;0&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;s&nbsp;:=&nbsp;s&#8593;.left&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;if&nbsp;t&nbsp;&gt;&nbsp;0&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then&nbsp;s&nbsp;:=&nbsp;s&#8593;.right&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;write(''The&nbsp;value&nbsp;is:&nbsp;'')&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writeln(s&#8593;.value)&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;g&nbsp;:=&nbsp;false)))))}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   Note that the first character of the word <i>with</i> is aligned with
+   the first character of the word <i>do.</i> The first characters of the
+   words <i>while</i> and <i>do</i> are aligned in the same way, as
+   are the first characters of the words <i>if</i>, <i>then</i>, and
+   <i>else</i>. The result of the <i>indent</i> scope looks like
+   this.
+  </p>
+  <blockquote>
+   <p>
+    (with&nbsp;
+    <br />
+    <font color="#FFFFFF">(w</font>var&nbsp;bool&nbsp;g&nbsp;:&#8722;&nbsp;true&nbsp;
+    <br />
+    <font color="#FFFFFF">(w</font>var&nbsp;tree&nbsp;s&nbsp;:&#8722;&nbsp;r&nbsp;
+    <br />
+    <font color="#FFFFFF">(</font>do&nbsp;(while&nbsp;g&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(</font>do&nbsp;(if&nbsp;s&nbsp;=&nbsp;nil&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(</font>then&nbsp;throw("keypunch&nbsp;error")&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(</font>else&nbsp;(with&nbsp;int&nbsp;t&nbsp;:&#8722;&nbsp;k&nbsp;&#8722;&nbsp;s&#8593;.key&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(</font>do&nbsp;(if&nbsp;t&nbsp;&lt;&nbsp;0&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(do&nbsp;(</font>then&nbsp;s&nbsp;:=&nbsp;s&#8593;.left&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(do&nbsp;(</font>else&nbsp;if&nbsp;t&nbsp;&gt;&nbsp;0&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(do&nbsp;(else&nbsp;</font>then&nbsp;s&nbsp;:=&nbsp;s&#8593;.right&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(do&nbsp;(else&nbsp;</font>else&nbsp;write(''The&nbsp;value&nbsp;is:&nbsp;'')&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(do&nbsp;(else&nbsp;else&nbsp;</font>writeln(s&#8593;.value)&nbsp;
+    <br />
+    <font color="#FFFFFF">(do&nbsp;(do&nbsp;(else&nbsp;(do&nbsp;(else&nbsp;else&nbsp;</font>g&nbsp;:=&nbsp;false)))))
+   </p>
+  </blockquote>
+  <p align="justify">
+   Even though the characters of the Roman font have different widths, the
+   <i>indent</i> scope still maintains the alignments mentioned above. The
+   first character of the word <i>while</i> is still aligned with the
+   first character of the word <i>do.</i> The words <i>with</i> and
+   <i>do</i> are still similarly aligned, and so are the words <i>if,
+   then,</i> and <i>else.</i> This works even for text that uses
+   multiple styles.
+  </p>
+  <a name="orson">
+  </a>
+  <p>
+   <b>3.3.11. Orson.</b>
+  </p>
+  <p align="justify">
+   The <i>orson</i> scope is like the <i>indent</i> scope, but it
+   makes Orson source code look something like classical Algol 60
+   <a href="#nau1963">
+    [<small>NAU</small>&nbsp;1963].
+   </a>
+   In the example from the previous section, if you change the scope from
+   <tt>indent</tt> to <tt>orson,</tt> you get this:
+  </p>
+  <blockquote>
+   <p>
+    (<b>with</b>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>w</b></font><b>var</b>&nbsp;<i>bool</i>&nbsp;<i>g</i>&nbsp;:&#8722;&nbsp;<i>true</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>w</b></font><b>var</b>&nbsp;<i>tree</i>&nbsp;<i>s</i>&nbsp;:&#8722;&nbsp;<i>r</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(</font><b>do</b>&nbsp;(<b>while</b>&nbsp;<i>g</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(</font><b>do</b>&nbsp;(<b>if</b>&nbsp;<i>s</i>&nbsp;=&nbsp;<i>nil</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(</font><b>then</b>&nbsp;<i>throw</i>(<i>"</i>keypunch&nbsp;error<i>"</i>)&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(</font><b>else</b>&nbsp;(<b>with</b>&nbsp;<i>int</i>&nbsp;<i>t</i>&nbsp;:&#8722;&nbsp;<i>k</i>&nbsp;&#8722;&nbsp;<i>s</i>&#8593;.<i>key</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(</font><b>do</b>&nbsp;(<b>if</b>&nbsp;<i>t</i>&nbsp;&lt;&nbsp;0&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(<b>do</b>&nbsp;(</font><b>then</b>&nbsp;<i>s</i>&nbsp;:=&nbsp;<i>s</i>&#8593;.<i>left</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(<b>do</b>&nbsp;(</font><b>else</b>&nbsp;<b>if</b>&nbsp;<i>t</i>&nbsp;&gt;&nbsp;0&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;</font><b>then</b>&nbsp;<i>s</i>&nbsp;:=&nbsp;<i>s</i>&#8593;.<i>right</i>&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;</font><b>else</b>&nbsp;<i>write</i>(''The&nbsp;value&nbsp;is:&nbsp;'')&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;<b>else</b>&nbsp;</font><i>writeln</i>(<i>s</i>&#8593;.<i>value</i>)&nbsp;
+    <br />
+    <font color="#FFFFFF">(<b>do</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;(<b>do</b>&nbsp;(<b>else</b>&nbsp;<b>else</b>&nbsp;</font><i>g</i>&nbsp;:=&nbsp;<i>false</i>)))))
+   </p>
+  </blockquote>
+  <p align="justify">
+   Operators appear without styles, plain names appear in italics, and reserved
+   names appear in boldface. Character literals, comments, numeric literals,
+   and string literals appear in their original styles. Quoted names also
+   appear in their original styles, but their quote marks are italicized so
+   they don&rsquo;t look like apostrophes.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The <i>display, indent,</i> and
+   <i>orson</i> scopes produce horrible-looking <small>HTML</small>.
+   In particular, the <i>indent</i> and <i>orson</i> scopes indent
+   lines by writing text in white, the same color as the page background, which
+   some browsers can&rsquo;t print correctly on paper. These scopes are
+   exceptions to the general rule that Bracy should produce
+   <small>HTML</small> that&rsquo;s easy to read.
+  </p>
+  <a name="over">
+  </a>
+  <p>
+   <b>3.3.12. Over.</b>
+  </p>
+  <p align="justify">
+   The <i>over</i> scope displays mathematical proofs like those in type
+   theory
+   <a href="#car1997">
+    [<small>CAR</small>&nbsp;1997],
+   </a>
+   and is intended to help describe Orson&rsquo;s type system. It has zero or
+   more nested scopes. The odd-numbered scopes are shown separated by
+   horizontal lines, and the even-numbered scopes label the lines. For example,
+   this <i>over</i> scope:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{over&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{center&nbsp;{b&nbsp;type}&nbsp;[{i&nbsp;k}]&nbsp;{i&nbsp;int}&nbsp;&#8838;&nbsp;{b&nbsp;type}&nbsp;[]&nbsp;{i&nbsp;exe}}&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{left&nbsp;\&nbsp;{i&nbsp;T}}&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{center&nbsp;[{i&nbsp;k}]&nbsp;{i&nbsp;int}&nbsp;&#8838;&nbsp;[]&nbsp;{i&nbsp;exe}}&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{left&nbsp;\&nbsp;{i&nbsp;A}}&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{center&nbsp;{i&nbsp;int}&nbsp;&#8838;&nbsp;{i&nbsp;exe}}&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{left&nbsp;\&nbsp;{i&nbsp;J}}&nbsp;</tt>
+    <br />
+    <font color="#FFFFFF"><tt>{o</tt></font><tt>{center&nbsp;{i&nbsp;true}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   appears as follows.
+  </p>
+  <blockquote>
+   <table cellpadding="0" cellspacing="0">
+    <tr>
+     <td>
+      <table align="center" cellpadding="0" cellspacing="0">
+       <tr valign="bottom">
+        <td>
+         <p align="center">
+          <b>type</b> [<i>k</i>] <i>int</i> &#8838;
+          <b>type</b> [] <i>exe</i>
+         </p>
+        </td>
+        <td>
+        </td>
+       </tr>
+       <tr valign="bottom">
+        <td>
+         <hr />
+        </td>
+        <td>
+         <p>
+          &nbsp;<i>T</i>
+         </p>
+        </td>
+       </tr>
+      </table>
+      <table align="center" cellpadding="0" cellspacing="0">
+       <tr valign="bottom">
+        <td>
+         <p align="center">
+          [<i>k</i>] <i>int</i> &#8838; [] <i>exe</i>
+         </p>
+        </td>
+        <td>
+        </td>
+       </tr>
+       <tr valign="bottom">
+        <td>
+         <hr />
+        </td>
+        <td>
+         <p>
+          &nbsp;<i>A</i>
+         </p>
+        </td>
+       </tr>
+      </table>
+      <table align="center" cellpadding="0" cellspacing="0">
+       <tr valign="bottom">
+        <td>
+         <p align="center">
+          <i>int</i> &#8838; <i>exe</i>
+         </p>
+        </td>
+        <td>
+        </td>
+       </tr>
+       <tr valign="bottom">
+        <td>
+         <hr />
+        </td>
+        <td>
+         <p>
+          &nbsp;<i>J</i>
+         </p>
+        </td>
+       </tr>
+       <tr valign="bottom">
+        <td>
+         <p align="center">
+          <i>true</i>
+         </p>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </blockquote>
+  <p align="justify">
+   If an <i>over</i> scope has an odd number of nested scopes (as in the
+   example), then the last scope is not followed by a horizontal line.
+  </p>
+  <a name="narrow">
+  </a>
+  <p>
+   <b>3.3.13. Narrow.</b>
+  </p>
+  <p align="justify">
+   The <i>narrow</i> scope shows a series of scopes in a narrower column
+   than would otherwise be used. (I could have said that it uses wider margins,
+   but calling it <i>widen</i> would have been less clear.) This is useful
+   to distinguish examples or long quotations from ordinary text; all the
+   examples in this manual are shown using <i>narrow.</i> For example:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{narrow&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;After&nbsp;college,&nbsp;Thelma&nbsp;Bracy&nbsp;became&nbsp;a&nbsp;high&nbsp;school&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;mathematics&nbsp;teacher&nbsp;in&nbsp;Albany,&nbsp;New&nbsp;York.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;freak&nbsp;accident&nbsp;with&nbsp;an&nbsp;adding&nbsp;machine&nbsp;tragically&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;ended&nbsp;her&nbsp;life&nbsp;in&nbsp;October,&nbsp;1967.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;She&nbsp;never&nbsp;married&nbsp;or&nbsp;had&nbsp;children.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;year&nbsp;after&nbsp;her&nbsp;death,&nbsp;the&nbsp;Science&nbsp;Fiction&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;Association&nbsp;Press&nbsp;published&nbsp;an&nbsp;anthology&nbsp;of&nbsp;her&nbsp;work,&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;entitled&nbsp;{i&nbsp;Beyond&nbsp;Computation.}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;It&nbsp;won&nbsp;her&nbsp;a&nbsp;special&nbsp;posthumous&nbsp;Hugo&nbsp;award&nbsp;in&nbsp;1969.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{right&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{i&nbsp;Thomas&nbsp;J.&nbsp;Chaswell}}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   This quotation is shown as follows:
+  </p>
+  <blockquote>
+   <p align="justify">
+    After college, Thelma Bracy became a high school mathematics teacher in
+    Albany, New York. A freak accident with an adding machine tragically ended
+    her life in October, 1967. She never married or had children. The year
+    after her death, the Science Fiction Association Press published an
+    anthology of her work, entitled <i>Beyond Computation.</i> It won her
+    a special posthumous Hugo award in 1969.
+   </p>
+   <p align="right">
+    <i>Thomas J. Chaswell</i>
+   </p>
+  </blockquote>
+  <p align="justify">
+   The <i>narrow</i> scope may be nested to obtain even narrower columns.
+   However, most browsers can&rsquo;t display text correctly if the columns
+   become too narrow.
+  </p>
+  <a name="comment">
+  </a>
+  <p>
+   <b>3.3.14. Comment.</b>
+  </p>
+  <p align="justify">
+   A <i>comment</i> scope has an asterisk &lsquo;<tt>*</tt>&rsquo;
+   instead of a name, and it may contain zero or more characters. Bracy treats
+   <i>comment</i> scopes as if they are blanks, so they may appear
+   anywhere blanks may appear. However, they may not appear inside
+   <i>display, indent,</i> or <i>orson</i> scopes, since these treat
+   blanks as parts of lines.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Since <i>comment</i> scopes are ignored,
+   you can use them to add explanatory text to a Bracy source file.
+   Here&rsquo;s an example.
+  </p>
+  <blockquote>
+   <p>
+    <tt>{*&nbsp;Copied&nbsp;right&nbsp;{C}&nbsp;1919&nbsp;by&nbsp;Thelma&nbsp;Bracy.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;Last&nbsp;revision&nbsp;October&nbsp;9,&nbsp;1967.&nbsp;}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   Any braces inside a <i>comment</i> scope must be matched: for each open
+   brace, there must be a corresponding closing brace. If an unmatched brace
+   appears, then it must be prefixed by a backslash. This allows nesting
+   <i>comment</i> scopes, one inside the other. It also allows part of a
+   Bracy source to be &lsquo;&lsquo;commented out&rsquo;&rsquo; by enclosing it
+   in a <i>comment</i> scope.
+  </p>
+  <a name="title">
+  </a>
+  <p>
+   <b>3.3.15. Title.</b>
+  </p>
+  <p align="justify">
+   The optional <i>title</i> scope defines the title at the top of a
+   browser window. If it appears, then it must be the first scope in the Bracy
+   source file (other than a <i>comment</i> scope). For example:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{title The Bracy Manual}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   One or more words must appear inside the <i>title</i> scope, and any
+   styles used by those words will be ignored.
+  </p>
+  <a name="goto">
+  </a>
+  <p>
+   <b>3.3.16. Goto.</b>
+  </p>
+  <p align="justify">
+   The <i>goto</i> scope sets up a link, either to a different web page
+   (an <i>external link</i>), or to a different place in the current web
+   page (an <i>internal link</i>). It must have a series of one or more
+   words nested inside it.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The first word says where the link points to.
+   If the word has at least one character other than a Roman letter
+   (<tt>A</tt>&#8211;<tt>Z</tt>,
+   <tt>a</tt>&#8211;<tt>z</tt>) or a digit
+   (<tt>0</tt>&#8211;<tt>9</tt>), then Bracy assumes it&rsquo;s a
+   <small>URL</small>, and sets up an external link. Bracy doesn&rsquo;t
+   test if the first word is really a <small>URL</small>. If it&rsquo;s
+   not, then what happens is up to your browser.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If the <small>URL</small> is the only
+   word in the <i>goto</i> scope, then you click on that word to follow
+   the link. For example, this paragraph:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;You&nbsp;should&nbsp;have&nbsp;received&nbsp;a&nbsp;copy&nbsp;of&nbsp;the&nbsp;{c&nbsp;Gnu}&nbsp;General&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;Public&nbsp;License&nbsp;along&nbsp;with&nbsp;Bracy.&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;If&nbsp;not,&nbsp;see&nbsp;{goto&nbsp;{t&nbsp;http://www.gnu.org/licenses/}}.}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   looks like this.
+  </p>
+  <blockquote>
+   <p align="justify">
+    You should have received a copy of the G<small>NU</small> General
+    Public License along with Bracy. If not, see
+    <a href="http://www.gnu.org/licenses/">
+     <tt>http://www.gnu.org/licenses/</tt>
+    </a>
+    .
+   </p>
+  </blockquote>
+  <p align="justify">
+   Bracy displays links in boldface so they&rsquo;ll stand out better from the
+   surrounding text. Unvisited links are blue and visited links are purple,
+   unless your browser decides otherwise.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If there&rsquo;s more than one word in the
+   <i>goto</i> scope, then you click on any word other than the first,
+   which is the <small>URL</small>. For example, this paragraph:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{justify&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;For&nbsp;a&nbsp;more&nbsp;realistic&nbsp;example,&nbsp;see&nbsp;the&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{goto&nbsp;Manual.by&nbsp;source&nbsp;for&nbsp;the&nbsp;Bracy&nbsp;Manual.}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   looks like this:
+  </p>
+  <blockquote>
+   <p align="justify">
+    For a more realistic example, see the
+    <a href="Manual.by">
+     source for the Bracy Manual.
+    </a>
+   </p>
+  </blockquote>
+  <p align="justify">
+   A <i>goto</i> scope can appear anywhere that any other scope can. It
+   can also appear inside the scopes <i>center, justify, left,</i> and
+   <i>right,</i> which otherwise can have only words inside them. It can
+   appear anywhere a word can appear.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If the first word in a <i>goto</i> scope
+   is made up only of letters and digits, then it&rsquo;s considered to be an
+   internal link. Internal links are defined using the <i>label</i> scope.
+   The way <i>label</i> scopes work with <i>goto</i> scopes is
+   described in the next section.
+  </p>
+  <a name="label">
+  </a>
+  <p>
+   <b>3.3.17. Label.</b>
+  </p>
+  <p align="justify">
+   A <i>label</i> scope must have exactly one word nested inside it, which
+   must be made up of Roman letters (<tt>A</tt>&#8211;<tt>Z</tt>,
+   <tt>a</tt>&#8211;<tt>z</tt>) and digits
+   (<tt>0</tt>&#8211;<tt>9</tt>). Any style information in the word
+   is ignored, and the word itself is not displayed by your browser. For
+   example, the first few lines of the Bracy Manual look something like this.
+  </p>
+  <blockquote>
+   <p>
+    <tt>{title&nbsp;The&nbsp;Bracy&nbsp;Manual}&nbsp;</tt>
+    <br />
+    <tt>{label&nbsp;top}&nbsp;</tt>
+    <br />
+    <tt>{center&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{b&nbsp;The&nbsp;{c&nbsp;Bracy}&nbsp;Manual}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   Now suppose you have a <i>goto</i> scope whose first word is
+   <tt>top</tt> somewhere in your source file. If you click on the link
+   established by that <i>goto</i> scope, then the browser will show you
+   the part of the page that contains <tt>{label&nbsp;top}.</tt> For
+   example, this paragraph:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{left&nbsp;Go&nbsp;to&nbsp;the&nbsp;{goto&nbsp;top}&nbsp;of&nbsp;the&nbsp;page.}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   appears like this:
+  </p>
+  <blockquote>
+   <p>
+    Go to the
+    <a href="#top">
+     top
+    </a>
+    of the page.
+   </p>
+  </blockquote>
+  <p align="justify">
+   If you click on the word <i>top,</i> you&rsquo;ll see the part of the
+   Bracy Manual where the title appears. Similarly, this paragraph:
+  </p>
+  <blockquote>
+   <p>
+    <tt>{left&nbsp;Go&nbsp;to&nbsp;the&nbsp;{goto&nbsp;top&nbsp;beginning&nbsp;of&nbsp;the&nbsp;manual.}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   appears like this:
+  </p>
+  <blockquote>
+   <p>
+    Go to the
+    <a href="#top">
+     beginning of the manual.
+    </a>
+   </p>
+  </blockquote>
+  <p align="justify">
+   and if you click on one of the words <i>beginning, of, the,</i> or
+   <i>manual,</i> the same thing will happen.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Like the <i>goto</i> scope, the
+   <i>label</i> scope can be nested inside the scopes <i>center,
+   justify, last,</i> and <i>right,</i> which otherwise can have only
+   words inside them. It can appear anywhere a word can appear.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The <i>goto</i> and <i>label</i>
+   scopes will work with any names, but you&rsquo;ll get an error message if
+   the same name appears in more than one <i>label</i> scope. However,
+   Bracy doesn&rsquo;t check if the name in a <i>goto</i> scope ever
+   appears in a <i>label</i> scope, or vice-versa. If it doesn&rsquo;t,
+   then what happens is up to your browser.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The program <i>Bracx</i> (pronounced
+   <i>bray-sex</i>) is a cross reference generator for Bracy source files.
+   It can help you keep track of <i>goto</i> and <i>label</i> scopes.
+   For example, it can find <i>goto</i> scopes that have no matching
+   <i>label</i> scopes, and <i>label</i> scopes that have no matching
+   <i>goto</i> scopes. Bracx is not described here, but you can find out
+   how to use it by typing the command
+   <tt>man</tt>&nbsp;<tt>bracx.</tt>
+  </p>
+  <a name="image">
+  </a>
+  <p>
+   <b>3.3.18. Image.</b>
+  </p>
+  <p align="justify">
+   The <i>image</i> scope must have exactly one word nested inside it. The
+   word must have at least one character other than a letter or a digit, so
+   that Bracy will treat it as a <small>URL</small> (like in a
+   <i>goto</i> scope). Bracy assumes that the <small>URL</small>
+   points to an image. It displays the image actual size, centered on the page,
+   without borders. Bracy doesn&rsquo;t test if the word in the
+   <i>image</i> scope is really a <small>URL</small>, or if it really
+   points to an image. If something is wrong with it, then what happens is up
+   to your browser. For example, this pencil sketch of Thelma Bracy is
+   displayed by the scope <tt>{image</tt>&nbsp;<tt>thelma.png}.</tt>
+  </p>
+  <p align="center">
+   <img border="0" src="thelma.png">
+  </p>
+  <p align="justify">
+   Curiously, no photographs of an adult Thelma Bracy are known to exist. She
+   never had a driver&rsquo;s license, or any form of photo
+   <small>ID</small>. Even while employed as a teacher, she somehow
+   avoided appearing in her high school&rsquo;s yearbook. This sketch was drawn
+   in the margin of a spiral notebook by one of her students, probably about
+   1965. Although crude, it is said to be a good likeness.
+  </p>
+  <a name="insert">
+  </a>
+  <p>
+   <b>3.3.19. Insert.</b>
+  </p>
+  <p align="justify">
+   The <i>insert</i> scope lets you use arbitrary <small>HTML</small>
+   code. The scope must have exactly one word inside it, which is a pathname to
+   a text file that contains the code. Bracy simply inserts the contents of
+   this file at the point where the <i>insert</i> scope appears. For
+   example, the scope <tt>{insert</tt>&nbsp;<tt>logigram.html}</tt>
+   inserts the contents of the file <tt>logigram.html.</tt>
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If the file doesn&rsquo;t exist, or if Bracy
+   can&rsquo;t read it, then you&rsquo;ll get an error message. Bracy
+   doesn&rsquo;t test if the file really contains valid
+   <small>HTML</small>. If it doesn&rsquo;t, then what happens is up to
+   your browser.
+  </p>
+  <a name="table">
+  </a>
+  <p>
+   <b>3.3.20. Table.</b>
+  </p>
+  <p align="justify">
+   The <i>table</i> scope displays a rectangular table. This is another
+   scope where it&rsquo;s easier to give an example before I explain how it
+   works. The following produces a table of the scopes that display text.
+  </p>
+  <blockquote>
+   <p>
+    <tt>{table&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;Section}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;Name}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;Description}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.5.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;bullet}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;words&nbsp;and&nbsp;scopes,&nbsp;prefixed&nbsp;by&nbsp;dots.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.5.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;center}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;centered&nbsp;and&nbsp;unfilled&nbsp;lines.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.6.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;column}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;multiple&nbsp;scopes.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.8.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;display}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;lines&nbsp;with&nbsp;nonbreaking&nbsp;blanks.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.10.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;indent}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Like&nbsp;{t&nbsp;display}&nbsp;but&nbsp;preserve&nbsp;alignment.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.8.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;itemize}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;words&nbsp;and&nbsp;scopes,&nbsp;prefixed&nbsp;by&nbsp;words.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.3.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;justify}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;filled,&nbsp;justified&nbsp;paragraphs.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.1.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;left}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;filled&nbsp;paragraphs,&nbsp;aligned&nbsp;flush&nbsp;left.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.13.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;narrow}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;scopes&nbsp;in&nbsp;narrowed&nbsp;columns.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.7.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;number}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;words&nbsp;or&nbsp;scopes&nbsp;prefixed&nbsp;by&nbsp;numbers.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.11.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;orson}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Like&nbsp;{t&nbsp;indent}&nbsp;but&nbsp;for&nbsp;Orson&nbsp;code.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.12.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;over}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;scopes&nbsp;separated&nbsp;by&nbsp;horizontal&nbsp;lines.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{b&nbsp;3.3.2}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{center&nbsp;{goto&nbsp;{t&nbsp;right}}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;Show&nbsp;filled&nbsp;paragraphs,&nbsp;aligned&nbsp;flush&nbsp;right.}}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   The result looks like this. The entries in the <b>Name</b> column are
+   in <i>goto</i> scopes that match <i>label</i> scopes at the start
+   of each section. As a result, if you click on the name of a scope,
+   you&rsquo;ll see the section that describes it.
+  </p>
+  <table align="center" border="1" cellpadding="3" cellspacing="0">
+   <tr bgcolor="#D3D3D3" valign="top">
+    <td>
+     <p align="center">
+      <b>Section</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <b>Name</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <b>Description</b>
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.5.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#bullet">
+       <tt>bullet</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show words and scopes, prefixed by dots.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.4.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#center">
+       <tt>center</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show centered and unfilled lines.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.6.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#column">
+       <tt>column</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show multiple scopes.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.9.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#display">
+       <tt>display</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show lines with nonbreaking blanks.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.10.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#indent">
+       <tt>indent</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Like <tt>display</tt> but preserve alignment.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.8.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#itemize">
+       <tt>itemize</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show words and scopes, prefixed by words.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.3.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#justify">
+       <tt>justify</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show filled, justified paragraphs.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.1.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#left">
+       <tt>left</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show filled paragraphs, aligned flush left.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.13.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#narrow">
+       <tt>narrow</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show scopes in narrowed columns.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.7.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#number">
+       <tt>number</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show words or scopes prefixed by numbers.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.11.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#orson">
+       <tt>orson</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Like <tt>indent</tt> but for Orson code.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.12.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#over">
+       <tt>over</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show scopes separated by horizontal lines.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p align="center">
+      <b>3.3.2.</b>
+     </p>
+    </td>
+    <td>
+     <p align="center">
+      <a href="#right">
+       <tt>right</tt>
+      </a>
+     </p>
+    </td>
+    <td>
+     <p>
+      Show filled paragraphs, aligned flush right.
+     </p>
+    </td>
+   </tr>
+  </table>
+  <p align="justify">
+   As shown in the example, nested inside the <i>table</i> scope is a
+   series of one or more <i>row</i> scopes. A <i>row</i> scope can
+   appear only inside a <i>table</i> scope or a <i>layout</i> scope
+   (described in the next section). You&rsquo;ll get an error message if you
+   try to use a <i>row</i> scope anywhere else.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Each <i>row</i> scope specifies a row in
+   the table. It contains a series of one or more scopes, each of which specify
+   a column in that row. Bracy supports only rectangular tables, so all
+   <i>row</i> scopes in a single <i>table</i> scope must have the
+   same number of scopes nested inside them. The first <i>row</i> scope of
+   the table specifies the captions that appear over each column. These
+   captions appear in a shaded row. All other rows are unshaded.
+   <br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tables are displayed centered on the page,
+   and without titles. If you want a table with a title, you could use a
+   <i>center</i> scope, either before or after the <i>table</i>
+   scope.
+  </p>
+  <a name="layout">
+  </a>
+  <p>
+   <b>3.3.21. Layout.</b>
+  </p>
+  <p align="justify">
+   Like the <i>table</i> scope, the <i>layout</i> scope also displays
+   a rectangular table, but it&rsquo;s not centered, and it doesn&rsquo;t have
+   a shaded caption bar or grid lines. For example, this <i>layout</i>
+   scope produces a list of Thelma Bracy&rsquo;s published short fiction from
+   the years 1938&#8211;1941.
+  </p>
+  <blockquote>
+   <p>
+    <tt>{layout&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;1938}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;\&nbsp;\&nbsp;}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{display&nbsp;</tt>
+    <br />
+    <tt>Fruit&nbsp;Counter.&nbsp;</tt>
+    <br />
+    <tt>Dangerously&nbsp;Unbalanced.&nbsp;</tt>
+    <br />
+    <tt>Fishing&nbsp;Without&nbsp;Annette.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;1939}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;\&nbsp;\&nbsp;}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{display&nbsp;</tt>
+    <br />
+    <tt>The&nbsp;Electric&nbsp;Snood.&nbsp;</tt>
+    <br />
+    <tt>The&nbsp;Entity&rsquo;s&nbsp;Identities.&nbsp;</tt>
+    <br />
+    <tt>The&nbsp;Touring&nbsp;Machine.&nbsp;</tt>
+    <br />
+    <tt>Busybody.&nbsp;</tt>
+    <br />
+    <tt>Knockout&nbsp;Keypunch.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;1940}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;\&nbsp;\&nbsp;}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{display&nbsp;</tt>
+    <br />
+    <tt>Policy.&nbsp;</tt>
+    <br />
+    <tt>Like&nbsp;a&nbsp;Screen&nbsp;Door&nbsp;on&nbsp;a&nbsp;Subroutine.&nbsp;</tt>
+    <br />
+    <tt>The&nbsp;Electrolinguistic&nbsp;Chair.&nbsp;</tt>
+    <br />
+    <tt>Pandora&rsquo;s&nbsp;Special&nbsp;Case.}}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;{row&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;1941}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{left&nbsp;\&nbsp;\&nbsp;}&nbsp;</tt>
+    <br />
+    <tt>&nbsp;&nbsp;&nbsp;&nbsp;{display&nbsp;</tt>
+    <br />
+    <tt>EZ&nbsp;as&nbsp;ABC.&nbsp;</tt>
+    <br />
+    <tt>A&nbsp;Billionth&nbsp;Second&nbsp;Foot.&nbsp;</tt>
+    <br />
+    <tt>Give&nbsp;Me&nbsp;a&nbsp;Break.&nbsp;</tt>
+    <br />
+    <tt>A&nbsp;Moth&nbsp;Among&nbsp;the&nbsp;Relays.}}}</tt>
+   </p>
+  </blockquote>
+  <p align="justify">
+   It looks like this:
+  </p>
+  <blockquote>
+   <table cellpadding="0" cellspacing="0">
+    <tr valign="top">
+     <td>
+      <p>
+       1938
+      </p>
+     </td>
+     <td>
+      <p>
+       &nbsp;&nbsp;
+      </p>
+     </td>
+     <td>
+      <p>
+       Fruit&nbsp;Counter.&nbsp;
+       <br />
+       Dangerously&nbsp;Unbalanced.&nbsp;
+       <br />
+       Fishing&nbsp;Without&nbsp;Annette.
+      </p>
+     </td>
+    </tr>
+    <tr valign="top">
+     <td>
+      <p>
+       1939
+      </p>
+     </td>
+     <td>
+      <p>
+       &nbsp;&nbsp;
+      </p>
+     </td>
+     <td>
+      <p>
+       The&nbsp;Electric&nbsp;Snood.&nbsp;
+       <br />
+       The&nbsp;Entity&rsquo;s&nbsp;Identities.&nbsp;
+       <br />
+       The&nbsp;Touring&nbsp;Machine.&nbsp;
+       <br />
+       Busybody.&nbsp;
+       <br />
+       Knockout&nbsp;Keypunch.
+      </p>
+     </td>
+    </tr>
+    <tr valign="top">
+     <td>
+      <p>
+       1940
+      </p>
+     </td>
+     <td>
+      <p>
+       &nbsp;&nbsp;
+      </p>
+     </td>
+     <td>
+      <p>
+       Policy.&nbsp;
+       <br />
+       Like&nbsp;a&nbsp;Screen&nbsp;Door&nbsp;on&nbsp;a&nbsp;Subroutine.&nbsp;
+       <br />
+       The&nbsp;Electrolinguistic&nbsp;Chair.&nbsp;
+       <br />
+       Pandora&rsquo;s&nbsp;Special&nbsp;Case.
+      </p>
+     </td>
+    </tr>
+    <tr valign="top">
+     <td>
+      <p>
+       1941
+      </p>
+     </td>
+     <td>
+      <p>
+       &nbsp;&nbsp;
+      </p>
+     </td>
+     <td>
+      <p>
+       EZ&nbsp;as&nbsp;ABC.&nbsp;
+       <br />
+       A&nbsp;Billionth&nbsp;Second&nbsp;Foot.&nbsp;
+       <br />
+       Give&nbsp;Me&nbsp;a&nbsp;Break.&nbsp;
+       <br />
+       A&nbsp;Moth&nbsp;Among&nbsp;the&nbsp;Relays.
+      </p>
+     </td>
+    </tr>
+   </table>
+  </blockquote>
+  <p align="justify">
+   Here <i>layout</i> simulates something like the <i>itemize</i>
+   scope, but without the extra blank lines. The <i>layout</i> scope is
+   often used as a kludge to display text in a way that isn&rsquo;t possible
+   with any other scope.
+  </p>
+  <a name="rule">
+  </a>
+  <p>
+   <b>3.3.22. Rule.</b>
+  </p>
+  <p align="justify">
+   The <i>rule</i> scope simply draws a horizontal line, which may be
+   useful to delimit major parts of a text (such as a reference section).
+   It&rsquo;s written as <tt>{rule},</tt> without anything nested inside
+   it. The result looks like this:
+  </p>
+  <hr />
+  <a name="references">
+  </a>
+  <p align="center">
+   <b>References</b>
+  </p>
+  <table cellpadding="0" cellspacing="0">
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="ans1986">
+      </a>
+      [<small>ANS</small>&nbsp;1986]&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      American National Standards Institute. <i>American National Standard
+      Code for Information Interchange.</i> <small>ANSI</small>
+      X3.4&#8211;1986.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="ber2001">
+      </a>
+      [<small>BER</small>&nbsp;2001]&nbsp;&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      Tim Berners-Lee. Quoted by Steve Lohr in <i>G<small>O</small>
+      T<small>O</small>.</i> Basic Books. New York, New York. 2001.
+      Page 180.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="car1997">
+      </a>
+      [<small>CAR</small>&nbsp;1997]&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      Luca Cardelli. &lsquo;&lsquo;Type Systems.&rsquo;&rsquo; In <i>The
+      Handbook of Computer Science and Engineering.</i> Chapter 103. CRC
+      Press. Cleveland, Ohio. 1997.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="cha2004">
+      </a>
+      [<small>CHA</small>&nbsp;2004]&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      Thomas J. Chaswell. &lsquo;&lsquo;Introduction.&rsquo;&rsquo; In
+      <i>Beyond Computation: The Complete Short Fiction of Thelma
+      Bracy.</i> Second Edition. Science Fiction Association Press. Oswego,
+      New York. 2004. Pages
+      <small><i>II</i></small>&#8211;<small><i>VII</i></small><i>.</i>
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="moe2017">
+      </a>
+      [<small>MOE</small>&nbsp;2017]
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      James B. Moen. &lsquo;&lsquo;Revised&#8315;&#185; Report on the
+      Algorithmic Language Orson.&rsquo;&rsquo; Unpublished technical report.
+      2017.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="nau1963">
+      </a>
+      [<small>NAU</small>&nbsp;1963]&nbsp;&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      J. W. Backus, F. L. Bauer, J. Green, C. Katz, J. McCarthy, P. Naur
+      (editor), A. J. Perlis, H. Rutishauser, K. Samelson, B. Vauquois, J. H.
+      Wegstein, A. van Wijngaarden, M. Woodger. &lsquo;&lsquo;Revised Report on
+      the Algorithmic Language A<small>LGOL</small> 60.&rsquo;&rsquo;
+      <i>Communications of the <small>ACM</small>.</i> Volume 6.
+      Number 1. January 1963. Pages 1&#8211;17.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="pow2001">
+      </a>
+      [<small>POW</small>&nbsp;2001]&nbsp;&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      Thomas A. Powell. <i>H<small>TML</small>: The Complete
+      Reference.</i> Third Edition. Osborne McGraw-Hill. Berkeley,
+      California. 2001.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="rei1980">
+      </a>
+      [<small>REI</small>&nbsp;1980]&nbsp;&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      Brian K. Reid, Janet H. Walker. <i>S<small>CRIBE</small>
+      Introductory User&rsquo;s Manual.</i> Third Edition, Preliminary
+      Draft. Unilogic Ltd. Pittsburgh, Pennsylvania. 1980.
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+    <td>
+     <p>
+      &nbsp;
+     </p>
+    </td>
+   </tr>
+   <tr valign="top">
+    <td>
+     <p>
+      <a name="uni2006">
+      </a>
+      [<small>UNI</small>&nbsp;2006]&nbsp;&nbsp;
+     </p>
+    </td>
+    <td>
+     <p align="justify">
+      The Unicode Consortium. <i>The Unicode Standard, Version 5.0.</i>
+      Fifth Edition. Addison-Wesley Professional. Reading, Massachusetts. 2006.
+     </p>
+    </td>
+   </tr>
+  </table>
+  <p align="justify">
+   The science fiction writer and teacher Thelma Suzette Bracy is fictional. So
+   are the members of her family, her short stories, her anthology <i>Beyond
+   Computation,</i> its editor Thomas J. Chaswell, and its publisher the
+   Science Fiction Association Press. The sketch in section
+   <a href="#image">
+    3.3.18,
+   </a>
+   alleged to be of Bracy, was drawn by James B. Moen. In the examples, names
+   of real persons, such as John W. Campbell, are used ficticiously. Any other
+   resemblance to real persons, living or dead, is purely coincidental.
+  </p>
+ </body>
+</html>

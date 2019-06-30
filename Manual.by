@@ -1,0 +1,1642 @@
+{*
+
+  BRACY/MANUAL. The Bracy manual.
+
+  Copyright © 2017 James B. Moen.
+  See below for permissions.
+
+}
+
+{title The Bracy Manual}
+{label top}
+{center
+ {b The Bracy Manual}
+
+ James B. Moen
+ June 30, 2017}
+
+{justify
+  Copyright © 2017 James B. Moen.
+  Permission is granted to copy, distribute, and/or modify this document under
+  the terms of the {c Gnu} Free Documentation License, Version 1.3 or any later
+  version published by the Free Software Foundation; with no Invariant
+  Sections, no Front-Cover Texts, and no Back-Cover Texts.
+  A copy of the license may be obtained at
+  {goto http://fsf.org/ {t <http://fsf.org/>.}}
+
+  This manual uses special characters.
+  Without proper rendering support, you may see question marks, boxes, or other
+  symbols in place of these characters.}
+
+{rule}
+
+{center {b Contents}}
+
+{layout
+ {row
+  {left {goto introduction 1.} \ }
+  {left Introduction.}}
+ {row
+  {left {goto running 2.} \ }
+  {left Running Bracy.}}
+ {row
+  {left {goto syntax 3.} \ }
+  {left Syntax.}}
+ {row
+  {left \ }
+  {layout
+   {row
+    {left {goto styles 3.1.} \ }
+    {left Styles.}}
+   {row
+    {left {goto bbb 3.2.} \ }
+    {left Braces, backslashes, and blanks.}}
+   {row
+    {left {goto scopes 3.3.} \ }
+    {left Scopes.}}
+   {row
+    {left \ }
+    {layout
+     {row
+      {left {goto left 3.3.1.} \ }
+      {left Left.}}
+     {row
+      {left {goto right 3.3.2.} \ }
+      {left Right.}}
+     {row
+      {left {goto justify 3.3.3.} \ }
+      {left Justify.}}
+     {row
+      {left {goto center 3.3.4.} \ }
+      {left Center.}}
+     {row
+      {left {goto bullet 3.3.5.} \ }
+      {left Bullet.}}
+     {row
+      {left {goto column 3.3.6.} \ }
+      {left Column.}}
+     {row
+      {left {goto number 3.3.7.} \ }
+      {left Number.}}
+     {row
+      {left {goto itemize 3.3.8.} \ }
+      {left Itemize.}}
+     {row
+      {left {goto display 3.3.9.} \ }
+      {left Display.}}
+     {row
+      {left {goto indent 3.3.10.} \ }
+      {left Indent.}}
+     {row
+      {left {goto orson 3.3.11.} \ }
+      {left Orson.}}
+     {row
+      {left {goto over 3.3.12.} \ }
+      {left Over.}}
+     {row
+      {left {goto narrow 3.3.13.} \ }
+      {left Narrow.}}
+     {row
+      {left {goto comment 3.3.14.} \ }
+      {left Comment.}}
+     {row
+      {left {goto title 3.3.15.} \ }
+      {left Title.}}
+     {row
+      {left {goto goto 3.3.16.} \ }
+      {left Goto.}}
+     {row
+      {left {goto label 3.3.17.} \ }
+      {left Label.}}
+     {row
+      {left {goto image 3.3.18.} \ }
+      {left Image.}}
+     {row
+      {left {goto insert 3.3.19.} \ }
+      {left Insert.}}
+     {row
+      {left {goto table 3.3.20.} \ }
+      {left Table.}}
+     {row
+      {left {goto layout 3.3.21.} \ }
+      {left Layout.}}
+     {row
+      {left {goto rule 3.3.22.} \ }
+      {left Rule.}}}}}}
+ {row
+  {left {goto references 4.} \ }
+  {left References.}}
+ {row
+  {left \ }
+  {left \ }}}
+
+{rule}
+
+{label introduction}
+{left {b 1. Introduction.}}
+
+{narrow
+ {justify
+   ``I never intended {c html} source code (the stuff with the angle brackets)
+   to be seen by users...''}
+ {right
+   {goto ber2001 {c [ber 2001]}}}}
+
+{justify
+  {i Bracy} (pronounced {i bray-see}) is a minimalist document compiler.
+  It makes {c html} {goto pow2001 {c [pow\ 2001]}} files that are supposed to
+  look like printed pages when displayed by a web browser.
+  (The page you're reading now was made by Bracy.)
+  Most browsers aren't very good at rendering text, but Bracy tries as hard as
+  it can anyway.
+  Bracy also tries to produce {c html} that's nicely indented, so it's readable
+  by Humans (not just programs).
+  This is useful if you want to edit an {c html} file made by Bracy, but you
+  don't have Bracy, or you don't have the Bracy source that produced the
+  {c html} file, or both.
+
+  {c Html}'s syntax is incredibly verbose and inconsistent: some features are
+  implemented as tags, others as attributes of tags, and still others as styles
+  associated with tags, all without apparent design principles.
+  And despite claims to the contrary, there is no standard {c html}, since no
+  two browsers seem to agree on what {c html}'s constructs mean, or what subset
+  of them should be implemented.
+  As a result, {c html} is nearly useless to the programmer who wants his or
+  her code to work the same way on any computer.
+  (Please {i don't} write to say that {c html} was created by the gods and it's
+  a sin for me to criticize it, or any similar nonsense.)
+
+  The important word in the previous paragraph was {i nearly.}
+  {c Html} does seem to have a few constructs that work almost the same way in
+  all browsers.
+  Bracy tries to use these few constructs exclusively.
+  It hides them behind a simpler notation so you don't have to see them, or
+  even think about them.
+  The good news, then, is that Bracy is easier to use than {c html.}
+  The bad news is that Bracy can't do everything {c html} can.
+
+  Bracy is written in the experimental programming language {i Orson}
+  {goto moe2017 {c [moe\ 2017],}} which I designed and implemented.
+  One reason I wrote Bracy is to find bugs in my Orson compiler.
+  I found lots of them.
+  I also wanted a relatively painless way to write Orson documentation in
+  {c html.}
+  There are mechanisms in Bracy to facilitate this, but you can still use Bracy
+  even if you don't care about Orson.}
+
+{label running}
+{left {b 2. Running Bracy.}}
+
+{justify
+  Bracy works under Unix-like operating systems, such as {c Gnu}/Linux.
+  This section assumes that Bracy is already installed on your system.
+
+  To run Bracy, you must first make a file containing Bracy source code, using
+  your favorite text editor.
+  (Bracy source code will be described in the remainder of this manual.)
+  The name of the Bracy source file must end with the suffix `{t .by}'.
+
+  Bracy source files use 31-bit characters, encoded using {c utf-8.}
+  This includes the familiar 21-bit Unicode characters
+  {goto uni2006 {c [uni 2006]}} and the 7-bit {c ascii} characters
+  {goto ans1986 {c [ans 1986]}} as subsets.
+  If you write source files on a Unix-like system in Unicode or in {c ascii,}
+  then you don't need to care about this: everything should work fine.
+
+  Suppose you have a Bracy source file called {t Manual.by.}
+  You can translate it to {c html} by typing the command
+  {t bracy}\ {t Manual.by} to the Unix shell.
+  Bracy then makes an object file called {t Manual.html} that contains {c html}
+  code.
+  This file can be viewed with a web browser.
+  If your source file has syntax errors, then Bracy will also print messages
+  that tell you where the errors appear.
+
+  Bracy makes {c html} object files using {c ascii} characters exclusively.
+  A character not in {c ascii} is rendered as `{t &#}{i d}{t ;}' where {i d}
+  is a series of one or more digits, the character's decimal numeric code.
+  For example, Bracy renders the character α (Greek lower-case {i alpha}) as
+  `{t &#945;}'.
+  Some browsers can't display characters like these.
+
+  The {t bracy} command has options that are not discussed here.
+  Type {t man}\ {t bracy} to see what they are, and how to use them.
+  You can also type {t man}\ {t ascii} to find out more about the {c ascii}
+  character set.
+  On many systems you can type {t man}\ {t unicode} and {t man}\ {t utf-8} to
+  find out about Bracy's character encoding.}
+
+{label syntax}
+{left {b 3. Syntax.}}
+
+{justify
+  Bracy's syntax was inspired by that of the document compiler {c Scribe}
+  {goto rei1980 {c [rei\ 1980].}}
+  The syntax has two parts.
+  The first deals with {i styles,} which describe how characters will appear.
+  The second deals with {i scopes,} most of which describe how text is rendered
+  into {c html.}}
+
+{label styles}
+{left {b 3.1. Styles.}}
+
+{justify
+  Bracy has ten character styles.
+  They were chosen partly for their potential usefulness, and partly because
+  they are likely to be supported by all web browsers
+  {goto pow2001 {c [pow\ 2001].}}
+  Each style is written as {t \{}{i style}\ {i text}{t \}}, where {i style} is
+  a series of one or more characters that tells what style you want, and
+  {i text} is the text that you want to appear in that style.}
+
+{bullet
+ {justify
+  {t \{b Abc\}} gives you {b Abc} in boldface.}
+
+ {justify
+  {t \{c Abc\}} gives you {c Abc} in small capitals.}
+
+ {justify
+  {t \{i Abc\}} gives you {i Abc} in italics.}
+
+ {justify
+  {t \{g Abc\}} gives you {g Abc} in gray.}
+
+ {justify
+  {t \{s Abc\}} gives you {s Abc} struck through.}
+
+ {justify
+  {t \{t Abc\}} gives you {t Abc} in typescript.}
+
+ {justify
+  {t \{u Abc\}} gives you {u Abc} underlined.}
+
+ {justify
+  {t \{+ Abc\}} gives you {+ Abc} in superscript.}
+
+ {justify
+  {t \{- Abc\}} gives you {- Abc} in subscript.}
+
+ {justify
+  {t \{- Abc \{= Ez\}\}} gives you {- Abc {= Ez}} in subscript and
+  sub-subscript.}}
+
+{justify
+  Bracy simulates the small capitals style by using upper case letters in a
+  reduced size.
+  Also, underlined words displayed with `{t u}' are not links, and must not
+  be confused with them.
+
+  Character styles can be nested, so that
+  {t \{b}\ {t\{i}\ {t Abc\}\}} gives you {bi Abc} in boldface italic.
+  Similarly, {t \{i}\ {t \{c}\ {t \{t}\ {t Abc\}\}\}} gives you {ict Abc} in
+  italic small capital typescript.
+  In principle, you should be able to get any combination of styles, but in
+  practice, some combinations may not look good with your browser.
+  For example, using `{t +}' and `{t -}' together may give results different
+  from what you expect.
+
+  Bracy doesn't care about the order of nested styles, so
+  {t \{i}\ {t \{b}\ {t Abc\}\}} gives you the same results as
+  {t \{b}\ {t \{i}\ {t Abc\}\}.}
+  Duplication of styles has no effect, so if you write
+  {t \{b}\ {t \{b}\ {t Abc\}\},} then you'll get the same results as
+  {t \{b}\ {t Abc\}}; you won't get boldface that's twice as bold.
+  You can abbreviate a nested style like {t \{b}\ {t \{i}\ {t Abc\}\}} by
+  writing {t \{bi}\ {t Abc\}} or {t \{ib}\ {t Abc\},} since order doesn't
+  matter.
+  You could even write {t \{bibi}\ {t Abc\},} since duplication doesn't matter
+  either, but that would be silly.
+  You can abbreviate any number of nested styles in this way.}
+
+{label bbb}
+{left {b 3.2. Braces, backslashes, and blanks.}}
+
+{justify
+  As the previous examples suggest, Bracy gets its name because it uses the
+  open brace `{t \{}' and the closing brace `{t \}}' as grouping symbols.
+  Some people call these characters ``curly brackets.''
+
+  If you want to show braces in your text, then you must prefix them with
+  backslashes, as in `{t \\\{}' and `{t \\\}}'.
+  Braces prefixed in this way will be treated as ordinary characters, not as
+  grouping symbols.
+  If you want to show a backslash in your text, then you must also prefix it
+  with a backslash, as in `{t \\\\}'.
+  For example, if you write `{t \\\{\\\\\\\}}', then the browser will display
+  it as `{t \{\\\}}'.
+
+  When a web browser is displaying your text, it might break a line where a
+  blank appears.
+  Sometimes you don't want that to happen.
+  You can avoid this problem by writing a blank prefixed by a backslash:
+  `{t \\\ }'.
+  This is called a {i nonbreaking blank.}
+  For example, if you write `{t a\\\ b\\\ c}' then Bracy will make sure {t a},
+  {t b}, and {t c} all stay on the same line.}
+
+{label scopes}
+{left {b 3.3. Scopes.}}
+
+{justify
+  Bracy uses {i scopes} to determine how your text should be organized into
+  lines and paragraphs, and how those lines and paragraphs should be displayed.
+  A scope is written as {t \{}{i scope}\ {i text}{t \},} where {i scope} is the
+  name of the scope.
+  Depending on which scope is being used, the {i text} may be a series of
+  words, a series of lines, a series of paragraphs, a series of scopes, or a
+  series of both words and scopes.
+  These are defined in the following way.}
+
+{bullet
+  {justify
+    A {i newline} is the invisible character that you get when you press the
+    {c return} key or the {c enter} key.}
+  {justify
+    A {i word} is a series of one or more characters, terminated by a blank,
+    a newline, or a brace.}
+  {justify
+    A {i line} is a series of zero or more words, separated by one or more
+    blanks, and terminated by a newline or a closing brace.}
+  {justify
+    An {i empty line} is a line with zero words: all it has is a newline or a
+    closing brace at the end.}
+  {justify
+    A {i paragraph} is a series of one or more non-empty lines, terminated by
+    an empty line or by a closing brace.}}
+
+{justify
+  A Bracy source file is a series of zero or more scopes.
+  These scopes are described in the rest of this manual.}
+
+{label left}
+{left {b 3.3.1. Left.}}
+
+{justify
+  The {i left} scope is simplest.
+  It displays a series of paragraphs whose lines are flush left and filled.
+  The first paragraph is not indented, but the second and later paragraphs
+  are.
+  The text in most web pages appears this way.
+  For example, if your source file contains this:}
+
+{narrow{t{display
+\{left
+  \{b Thelma Suzette Bracy\} (January 2, 1919 –
+  October 9, 1967) was an American science fiction writer.
+  Along with Isaac Asimov, L. Sprague de Camp, Robert
+  Heinlein, and A. E. van Vogt, she was one of many new
+  writers discovered in the late 1930's by John W. Campbell,
+  editor of \{i Astounding Science Fiction\} magazine.
+
+  Bracy is well known for her short stories that eerily
+  predicted many aspects of modern computer technology,
+  including cell phones, programming languages, and the
+  Internet.
+  Some claim that the name of the Internet language \{c html\}
+  was obtained by permuting the consonants of Bracy's first
+  name, but there is no evidence for this.
+
+  In many of Bracy's stories, the protagonist is Dr. Jules
+  Webster, a private detective with a doctorate in
+  ``electrolinguistics.''
+  The ``electronic brain'' owned by a large organization
+  mysteriously fails, and the reclusive Webster is hired to
+  repair it.
+  He does so by typing a cleverly written ``logigram'' into
+  the brain, using a ``keypunch.''\}}}}
+
+{justify
+  then the browser will display these three paragraphs:}
+
+{narrow
+ {left
+  {b Thelma Suzette Bracy} (January 2, 1919 – October 9, 1967)
+  was an American science fiction writer.
+  Along with Isaac Asimov, L. Sprague de Camp, Robert Heinlein,
+  and A. E. van Vogt, she was one of many new writers
+  discovered in the late 1930's by John W. Campbell, editor of
+  {i Astounding Science Fiction} magazine.
+
+  Bracy is well known for her short stories that eerily
+  predicted many aspects of modern computer technology,
+  including cell phones, programming languages, and the Internet.
+  Some claim that the name of the Internet language {c html}
+  was obtained by permuting the consonants of Bracy's first
+  name, but there is no evidence for this.
+
+  In many of Bracy's stories, the protagonist is Dr. Jules
+  Webster, a private detective with a doctorate in
+  ``electrolinguistics.''
+  The ``electronic brain'' owned by a large organization
+  mysteriously fails, and the reclusive Webster is hired to
+  repair it.
+  He does so by typing a cleverly written ``logigram'' into
+  the brain, using a ``keypunch.''}}
+
+{justify
+  Biographical information about Thelma Bracy is from the introduction to
+  {i Beyond Computation: The Complete Short Fiction of Thelma Bracy}
+  {goto cha2004 {c [cha 2004].}}}
+
+{label right}
+{left {b 3.3.2. Right.}}
+
+{justify
+  The {i right} scope displays a series of paragraphs whose lines are flush
+  right and filled.
+  Paragraphs are not indented.
+  This usually works well only for short texts, such as quotations.
+  For example, this:}
+
+{narrow{t{display
+\{right
+  Computers don't really work.
+  I just knew that before you did.
+
+  — Thelma Bracy (1966)\}}}}
+
+{justify
+  will appear like this:}
+
+{narrow
+ {right
+   Computers don't really work.
+   I just knew that before you did.
+
+   — Thelma Bracy (1966)}}
+
+{label justify}
+{left {b 3.3.3. Justify.}}
+
+{justify
+  The {i justify} scope displays a series of paragraphs whose lines are
+  justified and filled.
+  The first paragraph is not indented, but the second and later paragraphs
+  are.
+  Text in books and papers is typically justified, although text in most web
+  pages is not (this page isn't typical).
+  For example, the source text:}
+
+{narrow{t{display
+\{justify
+  Bracy's first published story, ``Fruit Counter,''
+  appeared in the March 1938 issue of \{i Astounding.\}
+  The electronic brain that runs the assembly line of the
+  National Canned Produce Company is inexplicably putting
+  pears into peach cans.
+  Baffled company engineers call Jules Webster in to
+  investigate.
+
+  When Webster arrives, he thinks for a few moments,
+  then asks to see a can of peas.
+  The engineers protest that the problem is with pears,
+  not peas, but he repeats his request.
+  When they get him a can of peas from the warehouse, he
+  opens it—and it contains pears, too!
+
+  A grinning Webster explains to the astonished engineers
+  that they have mistakenly instructed the brain to recognize
+  only the first three letters of each fruit and vegetable.
+  Since ``pears,'' ``peaches,'' and ``peas'' begin with the
+  same three letters, the brain cannot distinguish them.
+  In a dramatic keypunching session, Webster changes a 3 to
+  a 4, and the problem is solved.\}}}}
+
+{justify
+  will be displayed like this:}
+
+{narrow
+ {justify
+   Bracy's first published story, ``Fruit Counter,'' appeared in the March 1938
+   issue of {i Astounding.}
+   The electronic brain that runs the assembly line of the National Canned
+   Produce Company is inexplicably putting pears into peach cans.
+   Baffled company engineers call Jules Webster in to investigate.
+
+   When Webster arrives, he thinks for a few moments, then asks to see a can of
+   peas.
+   The engineers protest that the problem is with pears, not peas, but he
+   repeats his request.
+   When they get him a can of peas from the warehouse, he opens it—and it
+   contains pears, too!
+
+   A grinning Webster explains to the astonished engineers that they have
+   mistakenly instructed the brain to recognize only the first three letters
+   of each fruit and vegetable.
+   Since ``pears,'' ``peaches,'' and ``peas'' begin with the same three
+   letters, the brain cannot distinguish them.
+   In a dramatic keypunching session, Webster changes a 3 to a 4, and the
+   problem is solved.}}
+
+{label center}
+{left {b 3.3.4. Center.}}
+
+{justify
+  The {i center} scope displays a series of lines, each of which is centered.
+  Paragraph breaks are rendered as empty lines.
+  For example, this:}
+
+{narrow{t{display
+\{center
+  \{b Peas and Queues\}
+
+  Thelma Bracy
+  February 13, 1938\}}}}
+
+{justify
+  Produces this:}
+
+{center
+  {b Peas and Queues}
+
+  Thelma Bracy
+  February 13, 1938}
+
+{justify
+  As the example suggests, the {i center} scope works best with short texts.
+  It's often used to make headings and titles.}
+
+{label bullet}
+{left {b 3.3.5. Bullet.}}
+
+{justify
+  The {i bullet} scope displays a series of scopes and words with a symbol in
+  front of each.
+  The symbol is chosen by your browser, but it's typically some kind of raised
+  dot, called a ``bullet.''
+  For example, this:}
+
+{narrow{t{display
+\{bullet
+  \{left
+    Thelma Bracy was born in Far Rockaway, New York.\}
+  \{left
+    Her family was of French Canadian ancestry.
+    She had two older sisters, Annette and Yvette.\}
+  \{left
+    Bracy loved science, but her sisters teased her,
+    saying she couldn't be a scientist.
+    She began reading science fiction magazines instead.\}
+  \{left
+    When she was 10, she wrote her first science fiction
+    story, in which portable telephones secretly track
+    their owners' movements.\}\}}}}
+
+{justify
+  becomes this:}
+
+{narrow
+ {bullet
+  {left
+    Thelma Bracy was born in Far Rockaway, New York.}
+  {left
+    Her family was of French Canadian ancestry.
+    She had two older sisters, Annette and Yvette.}
+  {left
+    Bracy loved science, but her sisters teased her, saying she
+    couldn't be a scientist.
+    She began reading science fiction magazines instead.}
+  {left
+    When she was 10, she wrote her first science fiction
+    story, in which portable telephones secretly track
+    their owners' movements.}}}
+
+{justify
+  Even though {i left} scopes were used in this example, any scopes may
+  appear inside {i bullet} scopes.
+  I could have used {i justify} scopes, or some could be {i left} scopes and
+  others could be {i justify} scopes, etc.}
+
+{label column}
+{left {b 3.3.6. Column.}}
+
+{justify
+  The {i column} scope lets you put many scopes in a place where only one
+  would ordinarily be allowed.
+  For example, this {i bullet} scope has a {i column} scope nested inside it.}
+
+{narrow{t{display
+\{bullet
+  \{left
+    Bracy attended City College in New York, where she
+    majored in mathematics.\}
+  \{left
+    While in college, she submitted stories to science
+    fiction magazines like the ones she had read as a
+    child.\}
+  \{column
+    \{left
+      Her stories were about a mathematical detective named
+      Jules Webster, who lived thirty years in her future.\}
+    \{bullet
+      \{left
+        She named him after Jules Verne, her favorite
+        author.\}
+      \{left
+        She called him Webster because she liked to read
+        dictionaries.\}\}\}\}
+  \{left
+    All her stories were rejected.\}\}}}}
+
+{justify
+  It will be displayed like this.
+  When you nest one {i bullet} scope inside another, the browser may choose
+  different bullet symbols for inner scopes than for outer scopes.}
+
+{narrow
+ {bullet
+  {left
+    Bracy attended City College in New York, where she majored in mathematics.}
+  {left
+    While in college, she submitted stories to science fiction magazines like
+    the ones she had read as a child.}
+  {column
+   {left
+     Her stories were about a mathematical detective named Jules Webster,
+     who lived thirty years in her future.}
+   {bullet
+    {left
+      She named him after Jules Verne, her favorite author.}
+    {left
+      She called him Webster because she liked to read
+      dictionaries.}}}
+  {left
+    All her stories were rejected.}}}
+
+{justify
+  The {i column} scope must have at least one scope nested inside it, but it's
+  silly to use it with less than two nested scopes.}
+
+{label number}
+{left {b 3.3.7. Number.}}
+
+{justify
+  The {i number} scope is like the {i bullet} scope, but it displays a series
+  of scopes and words with a number in front of each.
+  The numbers start at one, and are incremented for each scope and word.
+  For example, this:}
+
+{narrow{t{display
+\{number
+  \{left
+    One day Bracy got a letter from John W. Campbell at
+    \{i Astounding\} that wasn't a rejection.\}
+  \{left
+    He suggested she write stories in which Jules Webster
+    solves mysteries involving ``electronic brains.''\}
+  \{left
+    She wrote a story called ``Peas and Queues'' and sent
+    it to Campbell.\}
+  \{left
+    He bought it, but changed the title to ``Fruit Counter''
+    for publication.
+  \{left
+    By the time she graduated from college, Bracy had sold
+    Campbell six more stories.\}\}}}}
+
+{justify
+  becomes this:}
+
+{narrow
+ {number
+  {left
+    One day Bracy got a letter from John W. Campbell at {i Astounding} that
+    wasn't a rejection.}
+  {left
+    He suggested she write stories in which Jules Webster solves
+    mysteries involving ``electronic brains.''}
+  {left
+    She wrote a story called ``Peas and Queues'' and sent it to Campbell.}
+  {left
+    He bought it, but changed the title to ``Fruit Counter'' for publication.}
+  {left
+    By the time she graduated from college, Bracy had sold
+    Campbell six more stories.}}}
+
+{justify
+  The browser chooses the format in which the numbers will be displayed.
+  If you nest one {i number} scope inside another, the browser may show the
+  numbers in the inner scopes differently from those in outer scopes.}
+
+{label itemize}
+{left {b 3.3.8. Itemize.}}
+
+{justify
+  The {i itemize} scope resembles the {i bullet} and {i number} scopes.
+  It displays a series of nested scopes and words with a short text (often a
+  single word) in front of each.
+  For example, this:}
+
+{narrow{t{display
+\{itemize
+  \{left Fruit Counter.\}
+  \{justify
+    Webster repairs an electronic brain that recognizes
+    only the first three letters of fruit and vegetable
+    names.\}
+  \{left Dangerously Unbalanced.\}
+  \{justify
+    Webster narrowly escapes death after the Army's
+    electronic brain gets keypunched logigrams with
+    too many parentheses.\}
+  Policy.
+  \{justify
+    Webster is called to Washington D.C. when an
+    electronic brain forces everyone to buy insurance
+    they do not want.\}
+  \{left Give Me a Break.\}
+  \{justify
+    The world's telephones stop working when someone
+    forgets to keypunch a special word into the
+    electronic brain that controls them.\}\}}}}
+
+{justify
+  becomes this:}
+
+{narrow
+ {itemize
+  {left Fruit Counter.}
+  {justify
+    Webster repairs an electronic brain that recognizes only the first three
+    letters of fruit and vegetable names.}
+  {left Dangerously Unbalanced.}
+  {justify
+    Webster narrowly escapes death after the Army's electronic brain gets
+    keypunched logigrams with too many parentheses.}
+  Policy.
+  {justify
+    Webster is called to Washington D.C. when an electronic brain forces
+    everyone to buy insurance they do not want.}
+  {left Give Me a Break.}
+  {justify
+    The world's telephones stop working when someone forgets to keypunch a
+    special word into the electronic brain that controls them.}}}
+
+{justify
+  The odd-numbered words or scopes inside {i itemize} state things to be
+  defined, and the even-numbered ones state their corresponding definitions.
+  As a result, the {i itemize} scope must have an even number of things nested
+  inside it.
+
+  Again, I could have used scopes other than {i justify} in this example.
+  I could have used {i bullet,} {i left,} {i number,} another {i itemize,}
+  or a mixture of these, along with {i column.}
+  However, it's best to keep things simple, since some browsers can't display
+  complex text in a visually appealing way.}
+
+{label display}
+{left {b 3.3.9. Display.}}
+
+{justify
+  The {i display} scope is unlike the scopes you've seen so far, because it
+  works with lines instead of words and paragraphs.
+  It makes the browser show a series of unfilled lines, flush left, in which
+  all blanks are treated as nonbreaking blanks.
+  This is useful for poetry or other irregularly indented English text.
+  For example, this limerick is due to an anonymous wag at the 1941 World
+  Science Fiction Convention in Denver, Colorado.}
+
+{narrow{t{display
+\{display
+There is a young woman called Bracy,
+     whose clothes aren't frilly or lacy.
+She expertly writes
+     about man-machine fights
+and electronic brains going crazy.\}}}}
+
+{justify
+  The browser shows it like this:}
+
+{narrow{display
+There is a young woman called Bracy,
+     whose clothes aren't frilly or lacy.
+She expertly writes
+     about man-machine fights
+and electronic brains going crazy.}}
+
+{justify
+  In a {i display} scope, the word {t display} must be immediately followed by
+  a newline.
+  This is because {i display} works with lines: it forces you to start a new
+  line for it to work with.}
+
+{label indent}
+{left {b 3.3.10. Indent.}}
+
+{justify
+  The {i indent} scope is like {i display,} except that it maintains the
+  alignment of the first nonblank character in each line with respect to the
+  other lines.
+  This is intended to support the indenting conventions used with programming
+  languages.
+
+  It's easiest to show what {i indent} does by means of an example.
+  This is part of an Orson program that writes the value associated with an
+  integer key {i k} in a binary search tree {i r.}
+  (See any undergraduate Data Structures textbook for details.)}
+
+{narrow{display
+{tq \{indent
+(with
+  var bool g :− true
+  var tree s :− r
+ do (while g
+     do (if s = nil
+         then throw("keypunch error")
+         else (with int t :− k − s↑.key
+               do (if t < 0
+                   then s := s↑.left
+                   else if t > 0
+                        then s := s↑.right
+                        else write(''The value is: '')
+                             writeln(s↑.value)
+                             g := false)))))\}}}}
+
+{justify
+  Note that the first character of the word {i with} is aligned with the first
+  character of the word {i do.}
+  The first characters of the words {i while} and {i do} are aligned in the
+  same way, as are the first characters of the words {i if}, {i then}, and
+  {i else}.
+  The result of the {i indent} scope looks like this.}
+
+{narrow{q{indent
+(with
+  var bool g :− true
+  var tree s :− r
+ do (while g
+     do (if s = nil
+         then throw("keypunch error")
+         else (with int t :− k − s↑.key
+               do (if t < 0
+                   then s := s↑.left
+                   else if t > 0
+                        then s := s↑.right
+                        else write(''The value is: '')
+                             writeln(s↑.value)
+                             g := false)))))}}}
+
+{justify
+  Even though the characters of the Roman font have different widths, the
+  {i indent} scope still maintains the alignments mentioned above.
+  The first character of the word {i while} is still aligned with the first
+  character of the word {i do.}
+  The words {i with} and {i do} are still similarly aligned, and so are the
+  words {i if,} {i then,} and {i else.}
+  This works even for text that uses multiple styles.}
+
+{label orson}
+{left {b 3.3.11. Orson.}}
+
+{justify
+  The {i orson} scope is like the {i indent} scope, but it makes Orson source
+  code look something like classical Algol 60 {goto nau1963 {c [nau\ 1963].}}
+  In the example from the previous section, if you change the scope from
+  {t indent} to {t orson,} you get this:}
+
+{narrow{orson
+(with
+  var bool g :− true
+  var tree s :− r
+ do (while g
+     do (if s = nil
+         then throw("keypunch error")
+         else (with int t :− k − s↑.key
+               do (if t < 0
+                   then s := s↑.left
+                   else if t > 0
+                        then s := s↑.right
+                        else write(''The value is: '')
+                             writeln(s↑.value)
+                             g := false)))))}}
+
+{justify
+  Operators appear without styles, plain names appear in italics, and reserved
+  names appear in boldface.
+  Character literals, comments, numeric literals, and string literals appear in
+  their original styles.
+  Quoted names also appear in their original styles, but their quote marks are
+  italicized so they don't look like apostrophes.
+
+  The {i display,} {i indent,} and {i orson} scopes produce horrible-looking
+  {c html.}
+  In particular, the {i indent} and {i orson} scopes indent lines by writing
+  text in white, the same color as the page background, which some browsers
+  can't print correctly on paper.
+  These scopes are exceptions to the general rule that Bracy should produce
+  {c html} that's easy to read.}
+
+{label over}
+{left {b 3.3.12. Over.}}
+
+{justify
+  The {i over} scope displays mathematical proofs like those in type theory
+  {goto car1997 {c [car\ 1997],}} and is intended to help describe Orson's
+  type system.
+  It has zero or more nested scopes.
+  The odd-numbered scopes are shown separated by horizontal lines, and the
+  even-numbered scopes label the lines.
+  For example, this {i over} scope:}
+
+{narrow
+ {t {indent
+\{over
+  \{center \{b type\} [\{i k\}] \{i int\} ⊆ \{b type\} [] \{i exe\}\}
+  \{left \\ \{i T\}\}
+  \{center [\{i k\}] \{i int\} ⊆ [] \{i exe\}\}
+  \{left \\ \{i A\}\}
+  \{center \{i int\} ⊆ \{i exe\}\}
+  \{left \\ \{i J\}\}
+  \{center \{i true\}\}}}}
+
+{justify
+  appears as follows.}
+
+{narrow
+ {over
+  {center {b type} [{i k}] {i int} ⊆ {b type} [] {i exe}}
+  {left \ {i T}}
+  {center [{i k}] {i int} ⊆ [] {i exe}}
+  {left \ {i A}}
+  {center {i int} ⊆ {i exe}}
+  {left \ {i J}}
+  {center {i true}}}}
+
+{justify
+  If an {i over} scope has an odd number of nested scopes (as in the example),
+  then the last scope is not followed by a horizontal line.}
+
+{label narrow}
+{left {b 3.3.13. Narrow.}}
+
+{justify
+  The {i narrow} scope shows a series of scopes in a narrower column than would
+  otherwise be used.
+  (I could have said that it uses wider margins, but calling it {i widen} would
+  have been less clear.)
+  This is useful to distinguish examples or long quotations from ordinary text;
+  all the examples in this manual are shown using {i narrow.}
+  For example:}
+
+{narrow{t{display
+\{narrow
+  \{justify
+    After college, Thelma Bracy became a high school
+    mathematics teacher in Albany, New York.
+    A freak accident with an adding machine tragically
+    ended her life in October, 1967.
+    She never married or had children.
+    The year after her death, the Science Fiction
+    Association Press published an anthology of her work,
+    entitled \{i Beyond Computation.\}
+    It won her a special posthumous Hugo award in 1969.\}\}
+  \{right
+    \{i Thomas J. Chaswell\}\}\}}}}
+
+{justify
+  This quotation is shown as follows:}
+
+{narrow
+ {justify
+   After college, Thelma Bracy became a high school
+   mathematics teacher in Albany, New York.
+   A freak accident with an adding machine tragically
+   ended her life in October, 1967.
+   She never married or had children.
+   The year after her death, the Science Fiction
+   Association Press published an anthology of her work,
+   entitled {i Beyond Computation.}
+   It won her a special posthumous Hugo award in 1969.}
+ {right
+   {i Thomas J. Chaswell}}}
+
+{justify
+  The {i narrow} scope may be nested to obtain even narrower columns.
+  However, most browsers can't display text correctly if the columns become
+  too narrow.}
+
+{label comment}
+{left {b 3.3.14. Comment.}}
+
+{justify
+  A {i comment} scope has an asterisk `{t *}' instead of a name, and it may
+  contain zero or more characters.
+  Bracy treats {i comment} scopes as if they are blanks, so they may appear
+  anywhere blanks may appear.
+  However, they may not appear inside {i display,} {i indent,} or {i orson}
+  scopes, since these treat blanks as parts of lines.
+
+  Since {i comment} scopes are ignored, you can use them to add explanatory
+  text to a Bracy source file.
+  Here's an example.}
+
+{narrow{t{display
+\{* Copied right \{C\} 1919 by Thelma Bracy.
+   Last revision October 9, 1967. \}}}}
+
+{justify
+  Any braces inside a {i comment} scope must be matched: for each open brace,
+  there must be a corresponding closing brace.
+  If an unmatched brace appears, then it must be prefixed by a backslash.
+  This allows nesting {i comment} scopes, one inside the other.
+  It also allows part of a Bracy source to be ``commented out'' by enclosing it
+  in a {i comment} scope.}
+
+{label title}
+{left {b 3.3.15. Title.}}
+
+{justify
+  The optional {i title} scope defines the title at the top of a browser
+  window.
+  If it appears, then it must be the first scope in the Bracy source file
+  (other than a {i comment} scope).
+  For example:}
+
+{narrow
+ {left
+  {t \{title The Bracy Manual\}}}}
+
+{justify
+  One or more words must appear inside the {i title} scope, and any styles
+  used by those words will be ignored.}
+
+{label goto}
+{left {b 3.3.16. Goto.}}
+
+{justify
+  The {i goto} scope sets up a link, either to a different web page
+  (an {i external link}), or to a different place in the current web page
+  (an {i internal link}).
+  It must have a series of one or more words nested inside it.
+
+  The first word says where the link points to.
+  If the word has at least one character other than a Roman letter
+  ({t A}–{t Z}, {t a}–{t z}) or a digit ({t 0}–{t 9}), then Bracy assumes it's
+  a {c url,} and sets up an external link.
+  Bracy doesn't test if the first word is really a {c url.}
+  If it's not, then what happens is up to your browser.
+
+  If the {c url} is the only word in the {i goto} scope, then you click on that
+  word to follow the link.
+  For example, this paragraph:}
+
+{t{narrow{display
+\{justify
+  You should have received a copy of the \{c Gnu\} General
+  Public License along with Bracy.
+  If not, see \{goto \{t http://www.gnu.org/licenses/\}\}.\}}}}
+
+{justify
+  looks like this.}
+
+{narrow
+ {justify
+   You should have received a copy of the {c Gnu} General
+   Public License along with Bracy.
+   If not, see {goto {t http://www.gnu.org/licenses/}}.}}
+
+{justify
+  Bracy displays links in boldface so they'll stand out better from the
+  surrounding text.
+  Unvisited links are blue and visited links are purple, unless your browser
+  decides otherwise.
+
+  If there's more than one word in the {i goto} scope, then you click on any
+  word other than the first, which is the {c url.}
+  For example, this paragraph:}
+
+{t {narrow {display
+\{justify
+  For a more realistic example, see the
+  \{goto Manual.by source for the Bracy Manual.\}\}}}}
+
+{justify
+  looks like this:}
+
+{narrow
+  {justify
+    For a more realistic example, see the
+    {goto Manual.by source for the Bracy Manual.}}}
+
+{justify
+  A {i goto} scope can appear anywhere that any other scope can.
+  It can also appear inside the scopes {i center,} {i justify,} {i left,} and
+  {i right,} which otherwise can have only words inside them.
+  It can appear anywhere a word can appear.
+
+  If the first word in a {i goto} scope is made up only of letters and digits,
+  then it's considered to be an internal link.
+  Internal links are defined using the {i label} scope.
+  The way {i label} scopes work with {i goto} scopes is described in the next
+  section.}
+
+{label label}
+{left {b 3.3.17. Label.}}
+
+{justify
+  A {i label} scope must have exactly one word nested inside it, which must
+  be made up of Roman letters ({t A}–{t Z}, {t a}–{t z}) and digits
+  ({t 0}–{t 9}).
+  Any style information in the word is ignored, and the word itself is not
+  displayed by your browser.
+  For example, the first few lines of the Bracy Manual look something like
+  this.}
+
+{t{narrow{display
+\{title The Bracy Manual\}
+\{label top\}
+\{center
+  \{b The \{c Bracy\} Manual\}\}}}}
+
+{justify
+  Now suppose you have a {i goto} scope whose first word is {t top} somewhere
+  in your source file.
+  If you click on the link established by that {i goto} scope, then the browser
+  will show you the part of the page that contains {t \{label\ top\}.}
+  For example, this paragraph:}
+
+{t {narrow {display
+\{left Go to the \{goto top\} of the page.\}}}}
+
+{justify
+  appears like this:}
+
+{narrow
+ {left
+   Go to the {goto top} of the page.}}
+
+{justify
+  If you click on the word {i top,} you'll see the part of the Bracy Manual
+  where the title appears.
+  Similarly, this paragraph:}
+
+{t {narrow {display
+\{left Go to the \{goto top beginning of the manual.\}\}}}}
+
+{justify
+  appears like this:}
+
+{narrow
+ {left
+   Go to the {goto top beginning of the manual.}}}
+
+{justify
+  and if you click on one of the words {i beginning,} {i of,} {i the,} or
+  {i manual,} the same thing will happen.
+
+  Like the {i goto} scope, the {i label} scope can be nested inside the scopes
+  {i center,} {i justify,} {i last,} and {i right,} which otherwise can have
+  only words inside them.
+  It can appear anywhere a word can appear.
+
+  The {i goto} and {i label} scopes will work with any names, but you'll get an
+  error message if the same name appears in more than one {i label} scope.
+  However, Bracy doesn't check if the name in a {i goto} scope ever appears in
+  a {i label} scope, or vice-versa.
+  If it doesn't, then what happens is up to your browser.
+
+  The program {i Bracx} (pronounced {i bray-sex}) is a cross reference
+  generator for Bracy source files.
+  It can help you keep track of {i goto} and {i label} scopes.
+  For example, it can find {i goto} scopes that have no matching {i label}
+  scopes, and {i label} scopes that have no matching {i goto} scopes.
+  Bracx is not described here, but you can find out how to use it by typing
+  the command {t man}\ {t bracx.}}
+
+{label image}
+{left {b 3.3.18. Image.}}
+
+{justify
+  The {i image} scope must have exactly one word nested inside it.
+  The word must have at least one character other than a letter or a digit, so
+  that Bracy will treat it as a {c url} (like in a {i goto} scope).
+  Bracy assumes that the {c url} points to an image.
+  It displays the image actual size, centered on the page, without borders.
+  Bracy doesn't test if the word in the {i image} scope is really a {c url,} or
+  if it really points to an image.
+  If something is wrong with it, then what happens is up to your browser.
+  For example, this pencil sketch of Thelma Bracy is displayed by the scope
+  {t \{image}\ {t thelma.png\}.}}
+
+{image thelma.png}
+
+{justify
+  Curiously, no photographs of an adult Thelma Bracy are known to exist.
+  She never had a driver's license, or any form of photo {c id.}
+  Even while employed as a teacher, she somehow avoided appearing in her high
+  school's yearbook.
+  This sketch was drawn in the margin of a spiral notebook by one of her
+  students, probably about 1965.
+  Although crude, it is said to be a good likeness.}
+
+{label insert}
+{left {b 3.3.19. Insert.}}
+
+{justify
+  The {i insert} scope lets you use arbitrary {c html} code.
+  The scope must have exactly one word inside it, which is a pathname to a text
+  file that contains the code.
+  Bracy simply inserts the contents of this file at the point where the
+  {i insert} scope appears.
+  For example, the scope {t \{insert}\ {t logigram.html\}} inserts the
+  contents of the file {t logigram.html.}
+
+  If the file doesn't exist, or if Bracy can't read it, then you'll get an
+  error message.
+  Bracy doesn't test if the file really contains valid {c html}.
+  If it doesn't, then what happens is up to your browser.}
+
+{label table}
+{left {b 3.3.20. Table.}}
+
+{justify
+  The {i table} scope displays a rectangular table.
+  This is another scope where it's easier to give an example before I explain
+  how it works.
+  The following produces a table of the scopes that display text.}
+
+{narrow {t {display
+\{table
+  \{row
+    \{center \{b Section\}\}
+    \{center \{b Name\}\}
+    \{center \{b Description\}\}\}
+  \{row
+    \{center \{b 3.3.5.\}\}
+    \{center \{goto \{t bullet\}\}\}
+    \{left Show words and scopes, prefixed by dots.\}\}
+  \{row
+    \{center \{b 3.3.5.\}\}
+    \{center \{goto \{t center\}\}\}
+    \{left Show centered and unfilled lines.\}\}
+  \{row
+    \{center \{b 3.3.6.\}\}
+    \{center \{goto \{t column\}\}\}
+    \{left Show multiple scopes.\}\}
+  \{row
+    \{center \{b 3.3.8.\}\}
+    \{center \{goto \{t display\}\}\}
+    \{left Show lines with nonbreaking blanks.\}\}
+  \{row
+    \{center \{b 3.3.10.\}\}
+    \{center \{goto \{t indent\}\}\}
+    \{left Like \{t display\} but preserve alignment.\}\}
+  \{row
+    \{center \{b 3.3.8.\}\}
+    \{center \{goto \{t itemize\}\}\}
+    \{left Show words and scopes, prefixed by words.\}\}
+  \{row
+    \{center \{b 3.3.3.\}\}
+    \{center \{goto \{t justify\}\}\}
+    \{left Show filled, justified paragraphs.\}\}
+  \{row
+    \{center \{b 3.3.1.\}\}
+    \{center \{goto \{t left\}\}\}
+    \{left Show filled paragraphs, aligned flush left.\}\}
+  \{row
+    \{center \{b 3.3.13.\}\}
+    \{center \{goto \{t narrow\}\}\}
+    \{left Show scopes in narrowed columns.\}\}
+  \{row
+    \{center \{b 3.3.7.\}\}
+    \{center \{goto \{t number\}\}\}
+    \{left Show words or scopes prefixed by numbers.\}\}
+  \{row
+    \{center \{b 3.3.11.\}\}
+    \{center \{goto \{t orson\}\}\}
+    \{left Like \{t indent\} but for Orson code.\}\}
+  \{row
+    \{center \{b 3.3.12.\}\}
+    \{center \{goto \{t over\}\}\}
+    \{left Show scopes separated by horizontal lines.\}\}
+  \{row
+    \{center \{b 3.3.2\}\}
+    \{center \{goto \{t right\}\}\}
+    \{left Show filled paragraphs, aligned flush right.\}\}\}}}}
+
+{justify
+  The result looks like this.
+  The entries in the {b Name} column are in {i goto} scopes that match
+  {i label} scopes at the start of each section.
+  As a result, if you click on the name of a scope, you'll see the section that
+  describes it.}
+
+{table
+ {row
+  {center {b Section}}
+  {center {b Name}}
+  {center {b Description}}}
+ {row
+  {center {b 3.3.5.}}
+  {center {goto {t bullet}}}
+  {left Show words and scopes, prefixed by dots.}}
+ {row
+  {center {b 3.3.4.}}
+  {center {goto {t center}}}
+  {left Show centered and unfilled lines.}}
+ {row
+  {center {b 3.3.6.}}
+  {center {goto {t column}}}
+  {left Show multiple scopes.}}
+ {row
+  {center {b 3.3.9.}}
+  {center {goto {t display}}}
+  {left Show lines with nonbreaking blanks.}}
+ {row
+  {center {b 3.3.10.}}
+  {center {goto {t indent}}}
+  {left Like {t display} but preserve alignment.}}
+ {row
+  {center {b 3.3.8.}}
+  {center {goto {t itemize}}}
+  {left Show words and scopes, prefixed by words.}}
+ {row
+  {center {b 3.3.3.}}
+  {center {goto {t justify}}}
+  {left Show filled, justified paragraphs.}}
+ {row
+  {center {b 3.3.1.}}
+  {center {goto {t left}}}
+  {left Show filled paragraphs, aligned flush left.}}
+ {row
+  {center {b 3.3.13.}}
+  {center {goto {t narrow}}}
+  {left Show scopes in narrowed columns.}}
+ {row
+  {center {b 3.3.7.}}
+  {center {goto {t number}}}
+  {left Show words or scopes prefixed by numbers.}}
+ {row
+  {center {b 3.3.11.}}
+  {center {goto {t orson}}}
+  {left Like {t indent} but for Orson code.}}
+ {row
+  {center {b 3.3.12.}}
+  {center {goto {t over}}}
+  {left Show scopes separated by horizontal lines.}}
+ {row
+  {center {b 3.3.2.}}
+  {center {goto {t right}}}
+  {left Show filled paragraphs, aligned flush right.}}}
+
+{justify
+  As shown in the example, nested inside the {i table} scope is a series of one
+  or more {i row} scopes.
+  A {i row} scope can appear only inside a {i table} scope or a {i layout}
+  scope (described in the next section).
+  You'll get an error message if you try to use a {i row} scope anywhere else.
+
+  Each {i row} scope specifies a row in the table.
+  It contains a series of one or more scopes, each of which specify a column in
+  that row.
+  Bracy supports only rectangular tables, so all {i row} scopes in a single
+  {i table} scope must have the same number of scopes nested inside them.
+  The first {i row} scope of the table specifies the captions that appear over
+  each column.
+  These captions appear in a shaded row.
+  All other rows are unshaded.
+
+  Tables are displayed centered on the page, and without titles.
+  If you want a table with a title, you could use a {i center} scope, either
+  before or after the {i table} scope.}
+
+{label layout}
+{left {b 3.3.21. Layout.}}
+
+{justify
+  Like the {i table} scope, the {i layout} scope also displays a rectangular
+  table, but it's not centered, and it doesn't have a shaded caption bar or
+  grid lines.
+  For example, this {i layout} scope produces a list of Thelma Bracy's
+  published short fiction from the years 1938–1941.}
+
+{narrow{t{display
+\{layout
+  \{row
+    \{left 1938\}
+    \{left \\\ \\ \}
+    \{display
+Fruit Counter.
+Dangerously Unbalanced.
+Fishing Without Annette.\}\}
+  \{row
+    \{left 1939\}
+    \{left \\\ \\ \}
+    \{display
+The Electric Snood.
+The Entity's Identities.
+The Touring Machine.
+Busybody.
+Knockout Keypunch.\}\}
+  \{row
+    \{left 1940\}
+    \{left \\\ \\ \}
+    \{display
+Policy.
+Like a Screen Door on a Subroutine.
+The Electrolinguistic Chair.
+Pandora's Special Case.\}\}
+  \{row
+    \{left 1941\}
+    \{left \\\ \\ \}
+    \{display
+EZ as ABC.
+A Billionth Second Foot.
+Give Me a Break.
+A Moth Among the Relays.\}\}\}}}}
+
+{justify
+  It looks like this:}
+
+{narrow
+ {layout
+  {row
+   {left 1938}
+   {left \ \ }
+   {display
+Fruit Counter.
+Dangerously Unbalanced.
+Fishing Without Annette.}}
+  {row
+   {left 1939}
+   {left \ \ }
+   {display
+The Electric Snood.
+The Entity's Identities.
+The Touring Machine.
+Busybody.
+Knockout Keypunch.}}
+  {row
+   {left 1940}
+   {left \ \ }
+   {display
+Policy.
+Like a Screen Door on a Subroutine.
+The Electrolinguistic Chair.
+Pandora's Special Case.}}
+  {row
+   {left 1941}
+   {left \ \ }
+   {display
+EZ as ABC.
+A Billionth Second Foot.
+Give Me a Break.
+A Moth Among the Relays.}}}}
+
+{justify
+  Here {i layout} simulates something like the {i itemize} scope, but without
+  the extra blank lines.
+  The {i layout} scope is often used as a kludge to display text in a way that
+  isn't possible with any other scope.}
+
+{label rule}
+{left {b 3.3.22. Rule.}}
+
+{justify
+  The {i rule} scope simply draws a horizontal line, which may be useful to
+  delimit major parts of a text (such as a reference section).
+  It's written as {t \{rule\},} without anything nested inside it.
+  The result looks like this:}
+
+{rule}
+
+{label references}
+{center {b References}}
+
+{layout
+ {row
+  {left
+   {label ans1986}
+   {c [ans\ 1986]\ }}
+  {justify
+    American National Standards Institute.
+    {i American National Standard Code for Information Interchange.}
+    {c ansi} X3.4–1986.}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label ber2001}
+   {c [ber\ 2001]\ \ }}
+  {justify
+    Tim Berners-Lee.
+    Quoted by Steve Lohr in {ic Go To.}
+    Basic Books.
+    New York, New York.
+    2001.
+    Page 180.}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label car1997}
+   {c [car\ 1997]\ }}
+  {justify
+    Luca Cardelli.
+    ``Type Systems.''
+    In {i The Handbook of Computer Science and Engineering.}
+    Chapter 103.
+    CRC Press.
+    Cleveland, Ohio.
+    1997.}}
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label cha2004}
+   {c [cha\ 2004]\ }}
+  {justify
+    Thomas J. Chaswell.
+    ``Introduction.''
+    In {i Beyond Computation: The Complete Short Fiction of Thelma Bracy.}
+    Second Edition.
+    Science Fiction Association Press.
+    Oswego, New York.
+    2004.
+    Pages {ci ii}–{ci vii.}}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label moe2017}
+   {c [moe\ 2017]}}
+  {justify
+    James B. Moen.
+    ``Revised⁻¹ Report on the Algorithmic Language Orson.''
+    Unpublished technical report.
+    2017.}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label nau1963}
+   {c [nau\ 1963]\ \ }}
+  {justify
+    J. W. Backus, F. L. Bauer, J. Green, C. Katz, J. McCarthy,
+    P. Naur (editor), A. J. Perlis, H. Rutishauser, K. Samelson, B. Vauquois,
+    J. H. Wegstein, A. van Wijngaarden, M. Woodger.
+    ``Revised Report on the Algorithmic Language {c Algol} 60.''
+    {i Communications of the {c acm.}}
+    Volume 6.
+    Number 1.
+    January 1963.
+    Pages 1–17.}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label pow2001}
+   {c [pow\ 2001]\ \ }}
+  {justify
+    Thomas A. Powell.
+    {i {c Html:} The Complete Reference.}
+    Third Edition.
+    Osborne McGraw-Hill.
+    Berkeley, California.
+    2001.}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label rei1980}
+   {c [rei\ 1980]\ \ }}
+  {justify
+    Brian K. Reid, Janet H. Walker.
+    {i {c Scribe} Introductory User's Manual.}
+    Third Edition, Preliminary Draft.
+    Unilogic Ltd.
+    Pittsburgh, Pennsylvania.
+    1980.}}
+
+ {row {left \ } {left \ }}
+
+ {row
+  {left
+   {label uni2006}
+   {c [uni\ 2006]\ \ }}
+  {justify
+    The Unicode Consortium.
+    {i The Unicode Standard, Version 5.0.}
+    Fifth Edition.
+    Addison-Wesley Professional.
+    Reading, Massachusetts.
+    2006.}}}
+
+{justify
+  The science fiction writer and teacher Thelma Suzette Bracy is fictional.
+  So are the members of her family, her short stories, her anthology
+  {i Beyond Computation,} its editor Thomas J. Chaswell, and its publisher
+  the Science Fiction Association Press.
+  The sketch in section {goto image 3.3.18,} alleged to be of Bracy, was drawn
+  by James B. Moen.
+  In the examples, names of real persons, such as John W. Campbell, are used
+  ficticiously.
+  Any other resemblance to real persons, living or dead, is purely
+  coincidental.}

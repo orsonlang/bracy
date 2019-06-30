@@ -1,0 +1,226 @@
+.TH BRACY 1 "September 10, 2017"
+.DD September 10, 2017
+
+.SH NAME
+bracy - Simple HTML document compiler
+
+.SH SYNOPSIS
+.B bracy\c
+\ [\c
+.B -npquv\c
+] [\c
+.BI -e \ count\c
+] [\c
+.I file\c
+\&...]
+
+.SH DESCRIPTION
+.B Bracy
+is a simple document compiler that translates Bracy source files to HTML object
+files.
+The HTML files are intended to resemble printed pages when displayed by a
+browser.
+Bracy source files are written in a markup language that uses braces \&'{'
+(U+007B) and '}' (U+007D) as grouping symbols, hence the name of the program.
+
+.PP
+.B Bracy
+translates source files whose pathnames appear on the command line.
+Each source file must have the suffix
+.B .by\c
+\&,
+and is translated to an object file with the same name, but with the suffix
+.B .html\c
+\&.
+If errors occur while translating a source file, then
+.B bracy
+writes error messages to stdout (not stderr!) and may produce an object file
+with undefined contents.
+
+.PP
+.B Bracy
+source files use a 31-bit character set with the UTF-8 encoding.
+It includes the familiar 7-bit ASCII characters and the 21-bit Unicode
+characters as subsets.
+If you write source files on a Unix-like system in ASCII or in Unicode, then
+you don't need to worry about this: everything should work fine.
+
+.PP
+.B Bracy
+object files use 7-bit ASCII characters exclusively.
+Non-ASCII characters are rendered as XML decimal character entities.
+For example, a Greek lower case alpha (U+03B1) is rendered as
+.B &#945;
+because hexadecimal 03B1 equals decimal 945.
+Some older browsers don't understand these character entities.
+
+.PP
+The following options are recognized.
+Options must precede pathnames on the command line.
+If an option doesn't appear on the command line, then its default takes effect.
+If no pathnames appear on the command line, then
+.B bracy
+does nothing (with one exception, noted below).
+
+.TP
+.BI -e \ count
+Errors.
+If one or more closing braces '}' are missing from a Bracy source file, then
+.B bracy
+may write a large number of unhelpful error messages.
+The
+.B -e
+option directs
+.B bracy
+to write only the first
+.I count
+error messages for each source file.
+If
+.I count
+is 0, then it writes no error messages.
+If
+.I count
+is
+.B all\c
+\&,
+then it writes all error messages.
+The default is 5.
+
+.TP
+.BI -n
+Naked.
+Produce HTML object files without initial comments,
+.B html
+tags,
+.B head
+tags, or
+.B body
+tags.
+"Naked" object files may be made parts of other object files using the
+.B insert
+scope.
+The default is to produce object files with these comments and tags.
+
+.TP
+.BI -p
+Proof.
+.B Bracy
+indents some text in HTML by using white characters on a white background.
+This is necessary if the indented text uses a font whose characters have
+varying widths.
+Unfortunately, when printing an HTML page on paper, some older browsers render
+these white characters in black, so the indented text is unreadable.
+The
+.BI -p
+option directs
+.B bracy
+to use a fixed width font for such text, and to indent it with (nonbreaking)
+blanks.
+The browser can then print a readable version of the text on paper, for
+proofreading off line.
+This option shouldn't be used to make HTML pages that will be read on line.
+The default is to indent using white characters.
+
+.TP
+.BI -q
+Quotes.
+In some browsers, the apostrophe ''' (U+0060) and grave accent '`' (U+0027)
+characters can't be easily distinguished.
+In others, two adjacent apostrophes look like the double quote '"' (U+0022)
+character.
+The
+.BI -q
+option directs
+.B bracy
+to render a grave accent as
+.B &lsquo;
+and an apostrophe as
+.B &rsquo;\c
+\&,
+which may avoid these problems.
+Some older browsers don't understand these character entities.
+The default is to render apostrophes and grave accents as themselves.
+
+.TP
+.BI -u
+Uparrow.
+The
+.BI -u
+option directs
+.B bracy
+to render a caret '^' (U+005E) as an uparrow, using
+.B &uarr;\c
+\&.
+Some older browsers don't understand this character entity.
+This option is primarily intended for documenting the programming language
+Orson, which treats carets as uparrows.
+The default is to render carets as themselves.
+
+.TP
+.B -v
+Version.
+Print
+.B bracy\c
+\&'s version number and other identifying information on stdout.
+This is the exception noted above: it works even if no pathnames appear on the
+command line.
+The default is not to print version information.
+
+.PP
+The effects of the
+.B -q
+and
+.B -u
+options may be temporarily turned off within a Bracy source file using the
+.B q
+(quoted) style, in which characters are rendered as themselves.
+For example,
+.B {q\ '}
+is always rendered as an apostrophe.
+The
+.B q
+style is not documented in the Bracy Manual.
+
+.SH BUGS
+.B
+Bracy
+can't do everything that HTML can.
+It produces HTML in a style that may offend purists.
+
+.SH COPYING
+Copyright (C) 2017 James B. Moen.
+Permission is granted to copy, distribute, and/or modify this document under
+the terms of the GNU Free Documentation License, Version 1.3 or any later
+version published by the Free Software Foundation; with no Invariant
+Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license may be obtained at <http://fsf.org/>.
+
+.SH VERSION
+Version 0.5.
+
+.SH REFERENCES
+James B. Moen.
+"The Bracy Manual."
+Unpublished technical report.
+2017.
+
+.PP
+James B. Moen.
+"The Unrevised Report on the Algorithmic Language Orson."
+Unpublished technical report.
+2017.
+
+.SH AUTHOR
+James B. Moen
+
+.SH SEE ALSO
+.B ascii\c
+(7),
+.B bracx\c
+(1),
+.B orson\c
+(1),
+.B unicode\c
+(7),
+.B utf-8\c
+(7).

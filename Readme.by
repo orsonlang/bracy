@@ -1,0 +1,170 @@
+{title Bracy}
+
+{center
+ {b Bracy}
+
+ James B. Moen
+ January 18, 2014}
+
+{narrow
+ {justify
+   Since the World Wide Web entered the mainstream in the early 1990s, a small
+   but increasing percentage of Unix projects have been writing their
+   documentation directly in {c html.}}
+ {right
+  {goto esr2004 {c [esr 2004]}}}}
+
+{justify
+  This directory contains source code for {i Bracy} (pronounced {i bray-see}),
+  a minimalist document compiler that produces {c html} files
+  {goto pow2001 {c [pow 2001].}}
+  It also contains source code for {i Bracx} (pronounced {i bray-sex}), a cross
+  reference generator for links in Bracy source files.
+  Most of the documentation for Orson was composed with Bracy, and debugged
+  with Bracx.
+  The following files contain Orson {goto moe2014 {c [moe 2014]}} source code
+  for Bracx and Bracy.}
+
+{narrow
+ {layout
+  {row
+   {left {goto {t char.os}}}
+   {left \ \ \ Read chars.}}
+  {row
+   {left {goto {t code.os}}}
+   {left \ \ \ Char style codes.}}
+  {row
+   {left {goto {t bracx.os}}}
+   {left \ \ \ Cross reference generator for Bracy source files.}}
+  {row
+   {left {goto {t bracy.os}}}
+   {left \ \ \ A simple document compiler that produces {c html.}}}
+  {row
+   {left {goto {t debug.os}}}
+   {left \ \ \ Methods for debugging.}}
+  {row
+   {left {goto {t emit.os}}}
+   {left \ \ \ Write fragments of {c html} code.}}
+  {row
+   {left {goto {t error.os}}}
+   {left \ \ \ Execution errors and syntax errors.}}
+  {row
+   {left {goto {t global.os}}}
+   {left \ \ \ Global constant and variable declarations.}}
+  {row
+   {left {goto {t internal.os}}}
+   {left \ \ \ Internal representation of a Bracy source.}}
+  {row
+   {left {goto {t label.os}}}
+   {left \ \ \ Test labels.}}
+  {row
+   {left {goto {t main.os}}}
+   {left \ \ \ Main program.}}
+  {row
+   {left {goto {t orsonize.os}}}
+   {left \ \ \ Modify styles to display Orson source text.}}
+  {row
+   {left {goto {t parse.os}}}
+   {left \ \ \ Translate a Bracy source to internal form.}}
+  {row
+   {left {goto {t set.os}}}
+   {left \ \ \ Sets of small nonnegative integers.}}
+  {row
+   {left {goto {t style.os}}}
+   {left \ \ \ Stacks of style codes.}}
+  {row
+   {left {goto {t subtoken.os}}}
+   {left \ \ \ Read subtokens from a Bracy source file.}}
+  {row
+   {left {goto {t token.os}}}
+   {left \ \ \ Read tokens from a Bracy source file.}}
+  {row
+   {left {goto {t translate.os}}}
+   {left \ \ \ Translate internal form to {c html.}}}}}
+
+{justify
+  These files contain documentation and other supporting information.}
+
+{narrow
+ {layout
+  {row
+   {left {goto ./Makefile {t Makefile}}}
+   {left \ \ \ Compile, install, uninstall Bracx and Bracy.}}
+  {row
+   {left {goto {t Manual.by}}}
+   {left \ \ \ Bracy source for {t Manual.html}.}}
+  {row
+   {left {goto Manual.html {t Manual.html\ }}}
+   {left \ \ \ The Bracy Manual.}}
+  {row
+   {left {goto ./README {t README}}}
+   {left \ \ \ Short text version of {t Readme.html}.}}
+  {row
+   {left {goto {t Readme.by}}}
+   {left \ \ \ Bracy source for {t Readme.html}.}}
+  {row
+   {left {goto {t Readme.html}}}
+   {left \ \ \ What you're reading now.}}
+  {row
+   {left {goto {t bracx.1}}}
+   {left \ \ \ Manual page for Bracx.}}
+  {row
+   {left {goto {t bracy.1}}}
+   {left \ \ \ Manual page for Bracy.}}
+  {row
+   {left {goto {t thelma.png}}}
+   {left \ \ \ An illustration used in The Bracy Manual.}}}}
+
+{justify
+  Bracx and Bracy are intended to run under Unix-like systems, such as
+  {c Gnu}/Linux.
+  Both are available for free under the terms of the {c Gnu} General Public
+  License ({c gpl}) version 3.
+  An Orson compiler is also available from the author, under the same terms.}
+
+{rule}
+
+{center {b References}}
+
+{layout
+ {row
+  {left
+   {label esr2004}
+   {c [esr\ 2004]\ \ }}
+  {justify
+    Eric Steven Raymond.
+    {i The Art of Unix Programming.}
+    Addison-Wesley.
+    Boston, Massachusetts.
+    2004.
+    Page 426.}}
+
+ {row
+  {left \ }
+  {left \ }}
+
+ {row
+  {left
+   {label moe2014}
+   {c [moe\ 2014]\ \ }}
+  {justify
+    James B. Moen.
+    ``Revised⁻¹ Report on the Algorithmic Language Orson.''
+    Unpublished technical report.
+    2014.}}
+
+ {row
+  {left \ }
+  {left \ }}
+
+ {row
+  {left
+   {label pow2001}
+   {c [pow\ 2001]\ \ }}
+  {justify
+    Thomas A. Powell.
+    {i {c Html:} The Complete Reference.}
+    Third Edition.
+    Osborne/McGraw Hill.
+    Berkeley, California.
+    2001.}}}

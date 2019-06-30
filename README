@@ -1,0 +1,47 @@
+                                     BRACY
+
+                                 James B. Moen
+                               January 18, 2014
+
+This  directory  contains  source  code  for  Bracy  (pronounced  bray-see),  a
+minimalist document compiler that produces  HTML files. It also contains source
+code for Bracx (pronounced bray-sex),  a cross reference generator for links in
+Bracy  source files.  Most of  the documentation  for Orson  was  composed with
+Bracy, and debugged  with Bracx. The following files  contain Orson source code
+for Bracx and Bracy.
+
+    char.os       Read chars.
+    code.os       Char style codes.
+    bracx.os      Cross reference generator for Bracy source files.
+    bracy.os      A simple document compiler that produces HTML.
+    debug.os      Methods for debugging.
+    emit.os       Write fragments of HTML code.
+    error.os      Execution errors and syntax errors.
+    global.os     Global constant and variable declarations.
+    internal.os   Internal representation of a Bracy source.
+    label.os      Test labels.
+    main.os       Main program.
+    orsonize.os   Modify styles to display Orson source text.
+    parse.os      Translate a Bracy source to internal form.
+    set.os        Sets of small nonnegative integers.
+    style.os      Stacks of style codes.
+    subtoken.os   Read subtokens from a Bracy source file.
+    token.os      Read tokens from a Bracy source file.
+    translate.os  Translate internal form to HTML.
+
+These files contain documentation and other supporting information.
+
+    Makefile      Compile, install, uninstall Bracx and Bracy.
+    Manual.by     Bracy source for Manual.html.
+    Manual.html   The Bracy Manual.
+    README        What you're reading now.
+    Readme.by     Source file for Readme.html.
+    Readme.html   Long HTML version of README.
+    bracx.1       Manual page for Bracx.
+    bracy.1       Manual page for Bracy.
+    thelma.png    An illustration used in The Bracy Manual.
+
+Bracx and Bracy are intended to run under Unix-like systems, such as GNU/Linux.
+Both are available  for free under the terms of the  GNU General Public License
+(GPL) version 3. An Orson compiler is also available from the author, under the
+same terms.
